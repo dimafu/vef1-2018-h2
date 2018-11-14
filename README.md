@@ -6,7 +6,7 @@ Given are [examples](utlit/) in `500px` and `1500px` without the grid along with
 
 ## Almennt
 
-The data is given in `lectures.json` which should be picked up with _ajax_. The project is ran with `browser-sync` to make it work.
+INFO. The data is given in `lectures.json` which should be picked up with _ajax_. The project is ran with `browser-sync` to make it work.
 
 Page material should not be wider than `1200px`. Colors and images in the header shall fill up all the horizontal space. Over the images is 60% opaque white color. Images for each lecture are defined in `json` file.
 
@@ -16,9 +16,9 @@ DONE. Color palette for the web is `#000`, `#999`, `#aaa`, `#ccc`, `#2d2`, `#1a1
 
 DONE. Letters for the main part are Lora, Times New Roman or serif letters. Letters for headings are Roboto Mono, Courier New or monospace.
 
-Most of all is set up in 12 columns grid with `20px` gutter.
+INFO. Most of all is set up in 12 columns grid with `20px` gutter.
 
-All intervals are half, whole, double or triple of the gutter. Possible to use the ruler (t.d. http://www.arulerforwindows.com/ or http://www.pascal.com/software/freeruler/) to find the exact sizes, but the most that matters is that solution is similar and is not exactly as in the example.
+INFO. All intervals are half, whole, double or triple of the gutter. Possible to use the ruler (t.d. http://www.arulerforwindows.com/ or http://www.pascal.com/software/freeruler/) to find the exact sizes, but the most that matters is that solution is similar and is not exactly as in the example.
 
 All animation is done in `300ms` with `ease-in-out` acceleration function. Animations take place when hovered over the lectures in the list and filter buttons.
 
