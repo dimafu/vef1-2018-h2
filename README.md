@@ -1,77 +1,78 @@
 # Hópverkefni 2
 
-Verkefnið felst í því að smíða prótótýpu af fyrirlestravef fyrir vefforritun. Gefin eru gögn sem unnin eru uppúr námsefni vetrarins.
+The project consists of crafting the prototype of the lecture web for the web development course. Given the data which is covering the winter study material.
 
-Gefnar eru [fyrirmyndir](utlit/) í `500px` og `1500px` án grindar ásamt `1500px` með grind. Allt efni skal skalast snyrtilega á milli.
+Given are [fyrirmyndir](utlit/) in `500px` and `1500px` without the grid along with `1500px` with grid. All the material should scale neatly in between.
 
 ## Almennt
 
-Gögn eru gefin í `lectures.json` sem sækja skal með _ajax_ virkni. Keyra verður verkefnið með `browser-sync` til að það virki.
+The data is given in `lectures.json` which should be picked up with _ajax_. The project is ran with `browser-sync` to make it work.
 
-Efni síðu skal ekki vera breiðara en `1200px`. Litir og myndir í haus skulu fylla út í allt lárétt pláss. Yfir myndum er 60% gegnsær hvítur litur. Myndir fyrir hvern fyrirlestur eru skilgreindir í `json` skrá.
+Page material should not be wider than `1200px`. Colors and images in the header shall fill up all the horizontal space. Over the images is 60% opaque white color. Images for each lecture are defined in `json` file.
 
-Grunn leturstærð er 16px og fylgja allar aðrar leturgerðir eftirfarandi skala: `16 24 32 48`.
+Base font size is 16px and all other fonts adopt the following scaling: `16 24 32 48`.
 
-Litapalletta fyrir vef er `#000`, `#999`, `#aaa`, `#ccc`, `#2d2`, `#1a1`, `#fcffd2` og `#cc9694`.
+Color palette for the web is `#000`, `#999`, `#aaa`, `#ccc`, `#2d2`, `#1a1`, `#fcffd2` and `#cc9694`.
 
-Letur fyrir meginmál er Lora, Times New Roman eða serif letur.
-Letur fyrir fyrirsagnir er Roboto Mono, Courier New eða monospace.
+Letters for the main part are Lora, Times New Roman or serif letters.
+Letters for headings are Roboto Mono, Courier New or monospace.
 
-Flest allt er sett upp í 12 dálka grind með `20px` gutter.
+Most of all is set up in 12 columns grid with `20px` gutter.
 
-Öll bil eru hálft, heilt, tvöfalt eða þrefalt margfeldi af gutter. Hægt er að nota reglustiku tól (t.d. http://www.arulerforwindows.com/ eða http://www.pascal.com/software/freeruler/) til að finna nákvæmar stærðir en mestu skiptir að lausn svipi til en sé ekki nákvæmlega eins og fyrirmynd.
+All intervals are half, whole, double or triple of the gutter. Possible to use the ruler (t.d. http://www.arulerforwindows.com/ or http://www.pascal.com/software/freeruler/) to find the exact sizes, but the most that matters is that solution is similar and is not exactly as in the example.
 
-Allar hreyfingar gerast á `300ms` með `ease-in-out` hröðunarfalli. Hreyfingar eru þegar svimað er yfir fyrirlestri í lista og síunar tökkum.
+All animation is done in `300ms` with `ease-in-out` acceleration function. Animations take place when hovered over the lectures in the list and filter buttons.
 
 ## Forsíða
 
-Forsíða inniheldur lista af öllum fyrirlestrum. Fram kemur hvort búið sé að klára fyrirlestur eða ekki. Nota skal `✓` til að tákna að fyrirlestri séð lokið, sjá að neðan hvernig virkni er.
+Front page contains the list of all lectures. It becomes indicated whether the is finished or not. Checkmark `✓` should be used to indicate that the lecture is finished, See below how it functions.
 
-Fyrir ofan lista skulu vera þrír takkar fyrir hvern af flokkunum: `HTML`, `CSS` og `JavaScript`. Í byrjun er engin takki virkur en um leið og takki er virkur skal aðeins sýna fyrirlestra í þeim flokk og takki litaður með `#2d2`. Ef fleiri takkar eru virkjaðir skal einnig sína þá fyrirlestra. Ef allir takkar eru virkir sést það sama og ef allir eru óvirkir—allir fyrirlestrar.
+Three buttons, one for each group should be above the list: `HTML`, `CSS` og `JavaScript`. In the beginning none of the buttons are active and when the button is activated lectures in the active group should only be displayed and the button should be colored with `#2d2`. If more buttons are activated should also show lectures from this group. Ef allir takkar eru virkir sést það sama og ef allir eru óvirkir—allir fyrirlestrar. If all the buttons are activated it is the same as if all are deactivated showing all the lectures.
 
-Þegar smellt er á fyrirlestur er farið yfir á `fyrirlestur.html?slug=<slug>` þar sem `<slug>` er _slug_ fyrir fyrirlesturinn, t.d. `fyrirlestur.html?slug=html-sagan`. Hægt er að nota `URLSearchParams` og `window.location.search` til að vita hvaða fyrirlestur átt er við á `fyrirlestur.html` síðu.
+When clicked on the lecture it is redirected over to `fyrirlestur.html?slug=<slug>` where `<slug>` is _slug_ for the lecture, e.g. `fyrirlestur.html?slug=html-sagan`. Possible to use `URLSearchParams` and `window.location.search` to know to which lecture is directed on `fyrirlestur.html` page.
 
 ## Fyrirlestur
 
-Fyrir hvern fyrirlestur skal birta haus og allt efni fyrirlesturs á eftir honum. Í haus kemur fram flokkur og titill.
+For each lecture should display header and all the lecture material that comes after that. In the header comes group and title.
 
-Efni fyrirlesturs er geymt í fylki og skal birta það í sömu röð og það er skilgreint. Útbúa þarf birtingu fyrir hverja einingu eftir útliti.
+Lecture material is store in an array and should display it in the same order as it is defined. Appearance for each unit should be prepared according to the outlook.
 
-Neðst er takki til að merkja fyrirlestur kláraðann og hlekkur til að fara til baka.
+At the bottom is a button to mark a lecture that is finished and link to go back.
 
 ### Kláraður fyrirlestur
 
-Ef fyrirlestur er merktur kláraður skal sýna `✓ Fyrirlestur kláraður` í `#2d2`. Annars `Klára fyrirlestur`. Þegar fyrirlestur er kláraður skal vista upplýsingar um það í `localStorage` og birta í lista og á fyrirlestra síðu.
+If a lecture marked finished should show `✓ Fyrirlestur kláraður` in `#2d2`. Otherwise `Klára fyrirlestur`. When lecture is finished should save the information about it in `localStorage` and display in a list and on a lecture page.
 
-Nota skal `slug` sem auðkenni yfir kláraða fyrirlestra.
+`slug` should be used as an ID for finished lectures.
 
 ## Fyrirlestragögn
 
-`lectures.json` inniheldur fylki af fyrirlestrum sem birta skal. Hver fyrirlestur getur haft:
+`lectures.json` contains an array of lectures that should be displayed. Each lecture can have:
 
-* `slug`, notað til að hlekkja á fyrirlestur
-* `title`, titill fyrirlesturs
-* `category`, flokkur fyrirlesturs
-* `image`, mynd í hausi fyrirlesturs, má sleppa, þá skal birta gráan lit í staðinn
-* `thumbnail`, mynd á yfirliti fyrirlestra, má sleppa, þá skal birta gráan lit í staðinn
-* `content`, fylki af efni fyrirlesturs
+* `slug`, used to link the lecture
+* `title`, lecture title
+* `category`, lecture group
+* `image`, image in the lecture header, may skip, then a gray color should be displayed
+* `thumbnail`, image of a lecture overview, may skip, then should disaply gray color instead
+* `content`, array of lecture material
 
 Fyrir efni fyrirlesturs er efni alltaf með:
+For lecture material the content is allways:
 
-* `type`, gerð efnis
-* `data`, gögn efnis
+* `type`, type of material
+* `data`, data of material
 
-þar sem `type` getur verið:
+where `type` can be:
 
-* `youtube`, `data` inniheldur hlekk á youtube myndband
-* `text`, `data` inniheldur gögn þar sem `\n` merkir á milli málsgreina, þ.e.a.s. texta skal birta innan `<p>`, skipt á `\n`
-* `quote`, `data` inniheldur tilvitnun, aukalega getur verið `attribute` með þeim sem vitnað er í
-* `image`, `data` inniheldur slóð á mynd, aukalega getur verið `caption` með texta með mynd
-* `heading`, `data` inniheldur fyrirsögn
-* `list`, `data` inniheldur fylki af textum í lista
-* `code`, `data` inniheldur kóða þar sem bil og nýjar línur skipta máli
+* `youtube`, `data` contains a link to youtube video
+* `text`, `data` contains the data where `\n` marks between the paragraphs, such that a text should be displayed within `<p>`, changed over to `\n`
+* `quote`, `data` contains citation, additionaly can be `attribute` with what it is referenced to
+* `image`, `data` contains path to image, additionally can be `caption` with text and image
+* `heading`, `data` contains headings
+* `list`, `data` contains array of text in a list
+* `code`, `data` contains code where interval and new lines matter
 
-Athugið að meira efni mun bætast við það sem gefið er í byrjun. Virkni ætti að ráða við hvaða efni sem er í hvaða formi sem er, svo lengi sem það fylgir reglum að ofan.
+Note that more material can add with what is given in the beginning. The functionality should dominate regardless of whatever material in whatever form is, as long as it follows the rules above.
 
 ## Hópavinna
 
