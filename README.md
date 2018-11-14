@@ -10,12 +10,11 @@ The data is given in `lectures.json` which should be picked up with _ajax_. The 
 
 Page material should not be wider than `1200px`. Colors and images in the header shall fill up all the horizontal space. Over the images is 60% opaque white color. Images for each lecture are defined in `json` file.
 
-Base font size is 16px and all other fonts adopt the following scaling: `16 24 32 48`.
+DONE. Base font size is 16px and all other fonts adopt the following scaling: `16 24 32 48`.
 
-Color palette for the web is `#000`, `#999`, `#aaa`, `#ccc`, `#2d2`, `#1a1`, `#fcffd2` and `#cc9694`.
+DONE. Color palette for the web is `#000`, `#999`, `#aaa`, `#ccc`, `#2d2`, `#1a1`, `#fcffd2` and `#cc9694`.
 
-Letters for the main part are Lora, Times New Roman or serif letters.
-Letters for headings are Roboto Mono, Courier New or monospace.
+DONE. Letters for the main part are Lora, Times New Roman or serif letters. Letters for headings are Roboto Mono, Courier New or monospace.
 
 Most of all is set up in 12 columns grid with `20px` gutter.
 
