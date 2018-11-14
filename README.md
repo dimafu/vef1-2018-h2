@@ -2,7 +2,7 @@
 
 The project consists of crafting the prototype of the lecture web for the web development course. Given the data which is covering the winter study material.
 
-Given are [fyrirmyndir](utlit/) in `500px` and `1500px` without the grid along with `1500px` with grid. All the material should scale neatly in between.
+Given are [examples](utlit/) in `500px` and `1500px` without the grid along with `1500px` with grid. All the material should scale neatly in between.
 
 ## Almennt
 
