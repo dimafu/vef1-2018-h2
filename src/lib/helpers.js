@@ -5,5 +5,14 @@ export function empty(element) {
 }
 
 export function el() {
-  return null // vantar skilagildi
+  let div1 = document.querySelector('.list');
+  console.log(data);
+
+  const divcol = document.createElement(div);
+  // þarf að klára
+}
+
+
+export function filterLectures(filter) {
+
 }
