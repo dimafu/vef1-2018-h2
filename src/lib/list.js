@@ -8,6 +8,15 @@ export default class List {
   }
  
   loadLectures() {
+    fetch(`${this.url}`);
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Villa');
+      }
+      return res.json();
+})
+    
+    //.then(function(response) { return response.json(); }); ég að leika mér. má eyða
     //sækja fyrirlestra og skila á json formi
     // fetch(this.url);
 
@@ -29,5 +38,6 @@ export default class List {
     .then(filterLectures) // gera eitthvað við fyrirlestara. gera html, filtera fyrirlestra
     .then(renderLectures) //viljum búa til html lista af  fyrirlestrum fyrir forsíðu. kalla á fall sem festir við div
     empty(this.container); //fjarlægja í lokin
+    
   }
 }
