@@ -3,3 +3,7 @@ export function empty(element) {
     element.removeChild(element.firstChild);
   }
 }
+
+export function el() {
+  return null // vantar skilagildi
+}

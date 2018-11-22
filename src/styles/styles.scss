@@ -52,3 +52,30 @@ img { /* stylelint-disable-line */
 }
 
 // TODO import
+header {
+  width: max-width;
+  margin-bottom: 40px;
+}
+
+.headerText {
+  
+  h1 {
+      font-size: 48px;
+      text-align: center;
+      font-family: $font-main;  
+    }
+    h3 {
+      font-size: 24px;
+      text-align: center;
+      font-family: $font-main;  
+    }
+  }
+ 
+  .headerImg {
+  background-image: url("/img/header.jpg");
+  //height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  //background-size: cover;
+  //position: relative;
+  }
