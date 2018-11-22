@@ -1,4 +1,5 @@
 import List from './lib/list';
+import Lecture from './lib/lectures';
 
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
@@ -6,14 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (isLecturePage) {
     const lecture = new Lecture();
-    lecture.load;
+    lecture.load();
   } else {
     const list = new List();
     list.load();
   }
 });
 
-
+/*
 function makeHeader (jsonObj) {
    let jsonObj = loadLectures();
    const header = document.createElement('header');
@@ -31,4 +32,4 @@ function makeHeader (jsonObj) {
 
    document.header.style.backgroundImage = url(headarImg);
 
-}
+}*/
