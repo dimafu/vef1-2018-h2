@@ -1,5 +1,28 @@
 @import "config";
 
+// ALL THE STYLES APPLIED ACROSS THE PAGES ARE HERE
+// Colors for the project
+$colors: (
+  cBlack: #000,
+  cGrayHov: #999,
+  cGray: #aaa,
+  cHeaderLI: #ccc,
+  cBut: #2d2,
+  cButHov: #1a1,
+  cSome: #fcffd2,
+  cPink: #cc9694
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+// Base font
+$baseFontSize: 16px;
+$mainWidth: 100%;
+// Font-families
+$font-family-body: "Lora", "Times New Roman", serif;
+$font-family-heading: "Roboto Mono", "Courier New", monospace;
+
 * {
   padding: 0;
   margin: 0;
@@ -16,8 +39,12 @@ html { /* stylelint-disable-line */
   overflow-x: hidden;
   overflow-y: scroll; // alltaf hafa y skrollbar
 
-  font-family: $font-main;
+  font-family: $font-family-body;
   font-size: 16px;
+}
+
+main {
+  width: 1200px;
 }
 
 img { /* stylelint-disable-line */
