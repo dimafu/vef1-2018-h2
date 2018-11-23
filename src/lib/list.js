@@ -26,7 +26,7 @@ export default class List {
   renderLectures(data) {
     //kalla á hjálparföll for creating elements
     data.forEach((lec) => {
-      const htmlLec = el(lec);
+      const htmlLec = el(lec); // ath changce to right function renderCard()
       htmlLectures.push(htmlLec);
     });
     //const htmlToRender = createHtmlFromLectures(htmlLectures);

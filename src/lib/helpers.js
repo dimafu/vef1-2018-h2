@@ -14,5 +14,13 @@ export function el() {
 
 
 export function filterLectures(filter) {
+  
+}
 
+export function renderCard () {
+  let div1 = document.querySelector('.list');
+  let newLink = document.createElement('a');
+  newLink.setAttribute('class', 'listItem');
+  newLink.setAttribute('href', '/fyrirlestur.html?slug=' ); //had to stop here. ?? how to finish.
+  div1.appendChild(newLink);
 }
