@@ -34,48 +34,60 @@ $font-family-heading: "Roboto Mono", "Courier New", monospace;
   box-sizing: inherit;
 }
 
-html { /* stylelint-disable-line */
+html {
+  /* stylelint-disable-line */
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: scroll; // alltaf hafa y skrollbar
 
   font-family: $font-family-body;
-  font-size: 16px;
+  font-size: 24px;
 }
 
 main {
   width: 1200px;
 }
 
-img { /* stylelint-disable-line */
+img {
+  /* stylelint-disable-line */
   max-width: 100%;
 }
 
 // TODO import
-header {
+.header {
+  font-family: $font-family-heading;
   width: max-width;
   margin-bottom: 40px;
 }
 
-.headerText {
-  
+.header__text {
+  vertical-align: middle;
+  line-height: 70px;
+
   h1 {
-      font-size: 48px;
-      text-align: center;
-      font-family: $font-main;  
-    }
-    h3 {
-      font-size: 24px;
-      text-align: center;
-      font-family: $font-main;  
-    }
+    font-size: 48px;
+    text-align: center;
   }
- 
-  .headerImg {
+  h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+.header__img {
   background-image: url("/img/header.jpg");
-  //height: 500px;
+  height: 25vh;
   background-position: center;
   background-repeat: no-repeat;
   //background-size: cover;
   //position: relative;
-  }
+}
+
+.navbar {
+  display: flex;
+  margin: auto;
+  width: 33.3333%;
+  justify-content: space-evenly;
+}
+
+@import "button.scss";
