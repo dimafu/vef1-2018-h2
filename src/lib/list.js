@@ -2,30 +2,31 @@ import { empty, el /*improtar el líka úr helpes*/ } from './helpers';
 
 export default class List {
   constructor() {
-  
-    this.container = document.querySelector('.list');
+
+    this.container = document.querySelector('.list'); //row í html
     this.url = '../lectures.json';
   }
- 
-  loadLectures() {
-    fetch(`${this.url}`);
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error('Villa');
-      }
-      return res.json();
-})
-    
-    //.then(function(response) { return response.json(); }); ég að leika mér. má eyða
-    //sækja fyrirlestra og skila á json formi
-    // fetch(this.url);
 
+  loadLectures() {
+
+    return fetch(this.url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Villa');
+        }
+        return response.json();
+      });
+      /* cath villa.then((data) => {
+        el(data); // rugli
+        return data;
+      })*/
   }
+
 
   renderLectures(data) {
     //kalla á hjálparföll for creating elements
     data.forEach((lec) => {
-      const htmlLec = el(lec);
+      const htmlLec = el(lec); // ath changce to right function renderCard()
       htmlLectures.push(htmlLec);
     });
     //const htmlToRender = createHtmlFromLectures(htmlLectures);
@@ -33,11 +34,11 @@ export default class List {
   }
 
   load() {
-     this.loadLectures() //hleður fyrirlestra
-     .then(getSavedLectures) // checked sign... save gögn 
-    .then(filterLectures) // gera eitthvað við fyrirlestara. gera html, filtera fyrirlestra
-    .then(renderLectures) //viljum búa til html lista af  fyrirlestrum fyrir forsíðu. kalla á fall sem festir við div
-    empty(this.container); //fjarlægja í lokin
-    
+    this.loadLectures() //hleður fyrirlestra
+      .then(data => this.renderLectures(data.lectures)); // checked sign... save gögn getSavedLectures
+    //  .then(filterLectures) // gera eitthvað við fyrirlestara. gera html, filtera fyrirlestra
+    //  .then(renderLectures) //viljum búa til html lista af  fyrirlestrum fyrir forsíðu. kalla á fall sem festir við div
+    // empty(this.container); //fjarlægja í lokin
+
   }
 }

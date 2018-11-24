@@ -1,7 +1,7 @@
 
 //import helper functions
 
-export default class Lecture () {
+export default class Lecture {
     constructor () {
        this.container = document.querySelector('.lecture-page'); 
        this.url = '.'
