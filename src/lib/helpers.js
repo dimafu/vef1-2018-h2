@@ -49,8 +49,8 @@ export function renderCard(lectures) {
   newDiv3.appendChild(newDiv4);
 
   let span = document.createElement('span');
-  span.setAttribute('class', 'listItem__catagory');
-  span.setAttribute('class', lectures.catagory);
+  span.setAttribute('class', 'listItem__category');
+  span.setAttribute('class', lectures.category);
   newDiv4.appendChild(span);
 
   let newH2 = document.createElement('h2');
