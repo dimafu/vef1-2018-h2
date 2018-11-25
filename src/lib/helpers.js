@@ -57,7 +57,7 @@ export function renderCard(lectures) {
   newH2.setAttribute('class', 'listItem__title');
   newH2.setAttribute('class', lectures.title);
   newDiv4.appendChild(newH2);
-
-
   return lectures;
 }
+
+
