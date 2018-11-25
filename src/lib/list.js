@@ -36,7 +36,7 @@ export default class List {
   }
 
   load() {
-    this.loadLectures() //hleður fyrirlestra
+    this.loadLectures() //hleður fyrirlestra.  //missing check saved data first
       .then(data => this.renderLectures(data.lectures)); // checked sign... save gögn getSavedLectures
     //  .then(filterLectures) // gera eitthvað við fyrirlestara. gera html, filtera fyrirlestra
     //  .then(renderLectures) //viljum búa til html lista af  fyrirlestrum fyrir forsíðu. kalla á fall sem festir við div

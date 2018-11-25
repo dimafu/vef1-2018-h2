@@ -7,28 +7,49 @@ export function empty(element) {
 }
 
 export function el() {
-  let div1 = document.querySelector('.list');
-  console.log(data);
-
-  const divcol = document.createElement(div);
-  // þarf að klára
-}
-
-
-export function filterLectures(filter) {
 
 }
 
+/*
+export function filterLectures () {
+  let htmlButton = document.querySelector('.htmlTakki');
+  htmlButton.addEventListener('click', htmlFilter);
+
+  
+  let cssButton = document.querySelector('.cssTakki');
+  cssButton.addEventListener('click', cssFilter);
+
+  let jsButton = document.querySelector('.javascriptTakki');
+  jsButton.addEventListener('click', jsFilter);
+
+}
+
+export function htmlFilter () {
+  let html = document.querySelector('.list__row__html');
+  html.classList.toggle("--hidden"));
+
+}
+export function cssFilter () {
+  let css = document.querySelector('.list__row__css');
+  css.classList.toggle("--hidden"));
+
+}
+export function jsFilter () {
+  let js = document.querySelector('.list__row__javascript');
+  js.classList.toggle("--hidden"));
+
+}
+*/
 export function renderCard(lectures) {
   let div1 = document.querySelector('.list');
 
   let newDiv1 = document.createElement('div');
-  newDiv1.setAttribute('class', 'list__row');
+  newDiv1.setAttribute('class', 'list__row__' + lectures.category);
   div1.appendChild(newDiv1);
 
   let newLink = document.createElement('a');
   newLink.setAttribute('class', 'listItem');
-  newLink.setAttribute('href', 'fyrirlestur.html?slug=' + lectures.slug); //had to stop here. ?? how to finish.
+  newLink.setAttribute('href', 'fyrirlestur.html?slug=' + lectures.slug);
   newDiv1.appendChild(newLink);
 
   let newDiv2 = document.createElement('div');
@@ -50,13 +71,12 @@ export function renderCard(lectures) {
 
   let span = document.createElement('span');
   span.setAttribute('class', 'listItem__catagory');
-  span.setAttribute('class', lectures.catagory);
   newDiv4.appendChild(span);
 
   let newH2 = document.createElement('h2');
   newH2.setAttribute('class', 'listItem__title');
-  newH2.setAttribute('class', lectures.title);
   newDiv4.appendChild(newH2);
+
   return lectures;
 }
 
