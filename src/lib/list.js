@@ -1,4 +1,5 @@
-import { empty, el /*improtar el líka úr helpes*/ } from './helpers';
+import { empty, el, /*improtar el líka úr helpes*/ 
+renderCard} from './helpers';
 
 export default class List {
   constructor() {
@@ -16,6 +17,7 @@ export default class List {
         }
         return response.json();
       });
+
       /* cath villa.then((data) => {
         el(data); // rugli
         return data;
@@ -25,12 +27,12 @@ export default class List {
 
   renderLectures(data) {
     //kalla á hjálparföll for creating elements
-    data.forEach((lec) => {
-      const htmlLec = el(lec); // ath changce to right function renderCard()
-      htmlLectures.push(htmlLec);
+    data.forEach((lec) => { //?? data
+      const htmlLec = renderCard(lec); // ath changce to right function renderCard()
+     //htmlLectures.push(htmlLec);
     });
     //const htmlToRender = createHtmlFromLectures(htmlLectures);
-    return htmlLectures;
+    return htmlLec;
   }
 
   load() {
