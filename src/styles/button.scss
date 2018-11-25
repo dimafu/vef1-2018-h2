@@ -1,0 +1,31 @@
+@import "config";
+
+.button {
+  display: block;
+
+  padding: 10px 15px;
+  margin: 0;
+
+  font-family: "Roboto Mono", "Courier New", monospace;
+  font-size: 16px;
+  font-weight: bold;
+
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+
+  cursor: pointer;
+  background-color: #ddd;
+
+  border: 0;
+  border-radius: 10px;
+
+  &--hidden {
+    display: none;
+  }
+
+  &--large {
+    max-width: 500px;
+    font-size: 2rem;
+  }
+}
