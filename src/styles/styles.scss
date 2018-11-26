@@ -45,7 +45,16 @@ html {
 }
 
 main {
-  width: 1200px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 1200px) {
+  main {
+  padding-left: 0px;
+  padding-right: 0px;
+  }
 }
 
 img {
@@ -92,34 +101,53 @@ img {
   justify-content: space-evenly;
 }
 
-.nothumb {
-  background-color: #ccc;
-  width: 400px;
-  height: 250px;
-}
+.page__cards {
+  margin: 0 auto;
+  max-width: 1200px;
 
-.list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-width: $max-width;
-  margin: 40px auto;
+  .list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 40px auto;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .card {
+    display: flex;
+    flex-direction: row;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    &.card-hidden {
+      display: none;
+    }
+  }
+
+  @media (min-width: 501px) {
+    .card {
+      width: 50%; 
+    } 
+  }
+  @media (min-width: 1001px) {
+    .card {
+      width: 33.33333%; 
+    } 
+  }
 
   .listItem {
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    justify-content: center;
+    width: 100%;
+    background-color: #ccc;
     color: color(cBlack);
-    width: 400px;
 
     &__image {
       height: 100%;
     }
 
-    &__bottom {
-      height: 100%;
-    }
   }
 }
 
@@ -145,3 +173,4 @@ img {
 }
 
 @import "button.scss";
+@import "lectureCard.scss";

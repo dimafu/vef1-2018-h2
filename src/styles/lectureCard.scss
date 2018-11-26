@@ -1,0 +1,14 @@
+@import "config";
+
+.list__col {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.list__row {
+
+border: 5px solid red;
+
+}

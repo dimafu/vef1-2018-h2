@@ -1,6 +1,6 @@
 @import "config";
 
-.button {
+.buttons__button {
   display: block;
 
   padding: 10px 16px;
@@ -24,7 +24,7 @@
     background-color: color(cButHov);
   }
 
-  &--active {
+  &.button-active {
     background-color: color(cButAct);
     &:hover {
       background-color: color(cButActHov);

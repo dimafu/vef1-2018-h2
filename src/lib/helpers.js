@@ -22,41 +22,68 @@ export function el(name, ...children) {
   return element;
 }
 
-/*
-export function filterLectures () {
-  const htmlButton = document.querySelector('.htmlTakki');
-  htmlButton.addEventListener('click', htmlFilter);
 
+export function filterLectures() {
+
+}
+
+export function showCards(value) {
+  let newValue = value.toLowerCase();
   
-  const cssButton = document.querySelector('.cssTakki');
-  cssButton.addEventListener('click', cssFilter);
-
-  const jsButton = document.querySelector('.javascriptTakki');
-  jsButton.addEventListener('click', jsFilter);
-
+  for (let card of document.querySelectorAll('.card')) {
+    if (card.classList.contains(newValue)) {
+      card.className = `card ${newValue}`;
+    }
+  }
 }
 
-export function htmlFilter () {
-  const html = document.querySelector('.list__row__html');
-  html.classList.toggle("--hidden"));
-
+export function hideCards(value) {
+  let newValue = value.toLowerCase();
+  
+  for (let card of document.querySelectorAll('.card')) {
+    if (!card.classList.contains(newValue)) {
+      card.classList.add('card-hidden');
+    } else if (card.classList.contains('card-hidden')) {
+      card.className = `card ${newValue}`;
+    }
+  }
+  
 }
-export function cssFilter () {
-  const css = document.querySelector('.list__row__css');
-  css.classList.toggle("--hidden"));
 
-}
-export function jsFilter () {
-  const js = document.querySelector('.list__row__javascript');
-  js.classList.toggle("--hidden"));
+var buttonCounter = 0;
 
+export function readButton(button) {
+  var bTarget = button.target;
+
+  if (bTarget.classList.contains('button-active')) {
+    bTarget.className = 'buttons__button';
+    buttonCounter--;
+    if (buttonCounter === 0) {
+      showCards('html');
+      showCards('css');
+      showCards('javascript');
+    }
+  } else {
+    bTarget.classList.add('button-active');
+    buttonCounter++;
+  }
+
+  for (let buttons of document.querySelectorAll('.button-active')) {
+    hideCards(`${buttons.innerHTML}`);
+  }
+
+  for (let buttons of document.querySelectorAll('.button-active')) {
+    showCards(`${buttons.innerHTML}`);
+  }
+  
 }
-*/
+
+
 export function renderCard(lectures) {
   const div1 = document.querySelector('.list');
 
-  const newDiv1 = document.createElement('div');
-  newDiv1.setAttribute('class', 'list__row__' + lectures.category);
+  let newDiv1 = document.createElement('div');
+  newDiv1.setAttribute('class', 'card ' + lectures.category);
   div1.appendChild(newDiv1);
 
   const newLink = document.createElement('a');
