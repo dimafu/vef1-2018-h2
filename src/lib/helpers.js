@@ -12,47 +12,77 @@ export function el() {
 
 
 export function filterLectures() {
+  /*  let html = document.querySelectorAll('.list__row__html');
+    let css = document.querySelectorAll('.list__row__css');
+    let js = document.querySelectorAll('.list__row__javascript');
+    let listRowAll =html + css + js;
+    console.log(listRowAll);
+  */
   let htmlButton = document.querySelector('.htmlTakki');
-  //htmlButton.classList.toggle('--active');
   htmlButton.addEventListener('click', htmlFilter);
-} //fjalægja
 
-
-/*
   let cssButton = document.querySelector('.cssTakki');
   cssButton.addEventListener('click', cssFilter);
 
-  const jsButton = document.querySelector('.javascriptTakki');
+  let jsButton = document.querySelector('.javascriptTakki');
   jsButton.addEventListener('click', jsFilter);
-
+  
+  if (!htmlButton.classList.contains('button--active')) {
+    html.forEach(
+      function (currentValue) {
+        currentValue.classList.add('--hidden');
+      }
+    );
+   }
 }
-*/
+
 export function htmlFilter() {
-  let html = document.querySelectorAll('.card__row__html');
-  console.log(html);
-  html.classList.toggleClass(' --hidden');
-  //htmlButton.classList.toggle('--active');
-  debugger;
-
+  let htmlButton = document.querySelector('.htmlTakki');
+  //  let html = document.querySelectorAll('.list__row__html');
+  htmlButton.classList.toggle('button--active');
+ /* html.forEach(
+    function (currentValue) {
+      currentValue.classList.toggle('--hidden');
+    }
+  );
+  /*  if (!htmlButton.classList.contains('button--active')) {
+     html.forEach(
+       function (currentValue) {
+         currentValue.classList.add('--hidden');
+       }
+     );
+    }*/
 }
-
-/*
 export function cssFilter() {
-  let css = document.querySelector('.card__row__css');
-  css.classList.toggle("--hidden");
-
+  let cssButton = document.querySelector('.cssTakki');
+  let css = document.querySelectorAll('.list__row__css');
+  cssButton.classList.toggle('button--active');
+  css.forEach(
+    function (currentValue) {
+      currentValue.classList.toggle('--hidden');
+    }
+  );
 }
+
+
 export function jsFilter() {
-  let js = document.querySelector('.card__row__javascript');
-  js.classList.toggle("--hidden");
+  let jsButton = document.querySelector('.javascriptTakki');
+  let js = document.querySelectorAll('.list__row__javascript');
+  jsButton.classList.toggle('button--active');
+  js.forEach(
+    function (currentValue) {
+      currentValue.classList.toggle('--hidden');
+    }
+  );
 
 }
-*/
+
+
 export function renderCard(lectures) {
   const div1 = document.querySelector('.list__all');
 
   let newDiv1 = document.createElement('div');
-  newDiv1.setAttribute('class', 'card__row__' + lectures.category);
+  newDiv1.setAttribute('class', 'list__row__' + lectures.category);
   div1.appendChild(newDiv1);
 
   const newLink = document.createElement('a');
