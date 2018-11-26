@@ -40,13 +40,8 @@ export default class List {
   load() {
     this.loadLectures() //hleður fyrirlestra.  //missing check saved data first
       .then(data => this.renderLectures(data.lectures)); // checked sign... save gögn getSavedLectures
-<<<<<<< HEAD
       filterLectures();
       //  .then(filterLectures) // gera eitthvað við fyrirlestara. gera html, filtera fyrirlestra
-=======
-      console.log(data.lectures);
-    //  .then(filterLectures) // gera eitthvað við fyrirlestara. gera html, filtera fyrirlestra
->>>>>>> 9bc7c5474d4292e389c0d0e8bc8572dc4b788aee
     //  .then(renderLectures) //viljum búa til html lista af  fyrirlestrum fyrir forsíðu. kalla á fall sem festir við div
     // empty(this.container); //fjarlægja í lokin
 
