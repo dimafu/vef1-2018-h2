@@ -12,77 +12,66 @@ export function el() {
 
 
 export function filterLectures() {
-  /*  let html = document.querySelectorAll('.list__row__html');
-    let css = document.querySelectorAll('.list__row__css');
-    let js = document.querySelectorAll('.list__row__javascript');
-    let listRowAll =html + css + js;
-    console.log(listRowAll);
-  */
-  let htmlButton = document.querySelector('.htmlTakki');
-  htmlButton.addEventListener('click', htmlFilter);
 
-  let cssButton = document.querySelector('.cssTakki');
-  cssButton.addEventListener('click', cssFilter);
+}
 
-  let jsButton = document.querySelector('.javascriptTakki');
-  jsButton.addEventListener('click', jsFilter);
+export function showCards(value) {
+  let newValue = value.toLowerCase();
   
-  if (!htmlButton.classList.contains('button--active')) {
-    html.forEach(
-      function (currentValue) {
-        currentValue.classList.add('--hidden');
-      }
-    );
-   }
+  for (let card of document.querySelectorAll('.card')) {
+    if (card.classList.contains(newValue)) {
+      card.className = `card ${newValue}`;
+    }
+  }
 }
 
-export function htmlFilter() {
-  let htmlButton = document.querySelector('.htmlTakki');
-  //  let html = document.querySelectorAll('.list__row__html');
-  htmlButton.classList.toggle('button--active');
- /* html.forEach(
-    function (currentValue) {
-      currentValue.classList.toggle('--hidden');
+export function hideCards(value) {
+  let newValue = value.toLowerCase();
+  
+  for (let card of document.querySelectorAll('.card')) {
+    if (!card.classList.contains(newValue)) {
+      card.classList.add('card-hidden');
+    } else if (card.classList.contains('card-hidden')) {
+      card.className = `card ${newValue}`;
     }
-  );
-  /*  if (!htmlButton.classList.contains('button--active')) {
-     html.forEach(
-       function (currentValue) {
-         currentValue.classList.add('--hidden');
-       }
-     );
-    }*/
-}
-export function cssFilter() {
-  let cssButton = document.querySelector('.cssTakki');
-  let css = document.querySelectorAll('.list__row__css');
-  cssButton.classList.toggle('button--active');
-  css.forEach(
-    function (currentValue) {
-      currentValue.classList.toggle('--hidden');
-    }
-  );
+  }
+  
 }
 
+var buttonCounter = 0;
 
-export function jsFilter() {
-  let jsButton = document.querySelector('.javascriptTakki');
-  let js = document.querySelectorAll('.list__row__javascript');
-  jsButton.classList.toggle('button--active');
-  js.forEach(
-    function (currentValue) {
-      currentValue.classList.toggle('--hidden');
+export function readButton(button) {
+  var bTarget = button.target;
+
+  if (bTarget.classList.contains('button-active')) {
+    bTarget.className = 'buttons__button';
+    buttonCounter--;
+    if (buttonCounter === 0) {
+      showCards('html');
+      showCards('css');
+      showCards('javascript');
     }
-  );
+  } else {
+    bTarget.classList.add('button-active');
+    buttonCounter++;
+  }
 
+  for (let buttons of document.querySelectorAll('.button-active')) {
+    hideCards(`${buttons.innerHTML}`);
+  }
+
+  for (let buttons of document.querySelectorAll('.button-active')) {
+    showCards(`${buttons.innerHTML}`);
+  }
+  
 }
 
 
 export function renderCard(lectures) {
-  const div1 = document.querySelector('.list__all');
+  const div1 = document.querySelector('.list');
 
   let newDiv1 = document.createElement('div');
-  newDiv1.setAttribute('class', 'list__row__' + lectures.category);
+  newDiv1.setAttribute('class', 'card ' + lectures.category);
   div1.appendChild(newDiv1);
 
   const newLink = document.createElement('a');
