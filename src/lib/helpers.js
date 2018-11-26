@@ -18,6 +18,7 @@ export function el() {
 
 
 export function filterLectures() {
+<<<<<<< HEAD
  /* const html = document.querySelectorAll('.list__row__html');
   const css = document.querySelectorAll('.list__row__css');
   const js = document.querySelectorAll('.list__row__javascript');
@@ -100,21 +101,80 @@ export function cssFilter() {
       }
     );
   }
+=======
+
 }
 
+export function showCards(value) {
+  let newValue = value.toLowerCase();
+  
+  for (let card of document.querySelectorAll('.card')) {
+    if (card.classList.contains(newValue)) {
+      card.className = `card ${newValue}`;
+    }
+  }
+}
 
+export function hideCards(value) {
+  let newValue = value.toLowerCase();
+  
+  for (let card of document.querySelectorAll('.card')) {
+    if (!card.classList.contains(newValue)) {
+      card.classList.add('card-hidden');
+    } else if (card.classList.contains('card-hidden')) {
+      card.className = `card ${newValue}`;
+    }
+  }
+  
+>>>>>>> 4564d0f64046f5ca20691a3f3933e02dceb57fff
+}
+
+var buttonCounter = 0;
+
+<<<<<<< HEAD
 export function jsFilter() {
   jsButton.classList.toggle('button--active');
 
+=======
+export function readButton(button) {
+  var bTarget = button.target;
+
+  if (bTarget.classList.contains('button-active')) {
+    bTarget.className = 'buttons__button';
+    buttonCounter--;
+    if (buttonCounter === 0) {
+      showCards('html');
+      showCards('css');
+      showCards('javascript');
+    }
+  } else {
+    bTarget.classList.add('button-active');
+    buttonCounter++;
+  }
+
+  for (let buttons of document.querySelectorAll('.button-active')) {
+    hideCards(`${buttons.innerHTML}`);
+  }
+
+  for (let buttons of document.querySelectorAll('.button-active')) {
+    showCards(`${buttons.innerHTML}`);
+  }
+  
+}
+>>>>>>> 4564d0f64046f5ca20691a3f3933e02dceb57fff
 
 }
 */
 
 export function renderCard(lectures) {
+<<<<<<< HEAD
   const div1 = document.querySelector('.list__all');
+=======
+  const div1 = document.querySelector('.list');
+>>>>>>> 4564d0f64046f5ca20691a3f3933e02dceb57fff
 
   let newDiv1 = document.createElement('div');
-  newDiv1.setAttribute('class', 'list__row__' + lectures.category);
+  newDiv1.setAttribute('class', 'card ' + lectures.category);
   div1.appendChild(newDiv1);
 
   const newLink = document.createElement('a');
