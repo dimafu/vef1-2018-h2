@@ -92,5 +92,49 @@ img {
   justify-content: space-evenly;
 }
 
+.nothumb {
+  background-color: #ccc;
+  width: 400px;
+  height: 250px;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: $max-width;
+  margin: 40px auto;
+
+  .listItem {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    justify-content: center;
+    color: color(cBlack);
+    width: 400px;
+
+    &__image {
+      height: 100%;
+    }
+
+    &__bottom {
+      height: 100%;
+    }
+  }
+}
+
+.listItem__text {
+  background-color: color(cBut);
+  font-family: $font-family-heading;
+
+  h2 {
+    font-size: 32px;
+    word-wrap: break-word;
+  }
+  span {
+    font-size: 16px;
+  }
+}
+
 @import "button.scss";
 @import "lectureCard.scss";
