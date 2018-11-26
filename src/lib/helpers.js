@@ -79,7 +79,11 @@ export function jsFilter() {
 
 
 export function renderCard(lectures) {
+<<<<<<< HEAD
+  const div1 = document.querySelector('.list__all');
+=======
   let div1 = document.querySelector('.list__col');
+>>>>>>> f5a81d21d81c32d29bc5385ce0e5c1ddfedf39c2
 
   let newDiv1 = document.createElement('div');
   newDiv1.setAttribute('class', 'list__row__' + lectures.category);

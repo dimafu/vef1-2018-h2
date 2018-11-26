@@ -45,7 +45,16 @@ html {
 }
 
 main {
-  width: 1200px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 1200px) {
+  main {
+  padding-left: 0px;
+  padding-right: 0px;
+  }
 }
 
 img {
@@ -88,30 +97,63 @@ img {
 .navbar {
   display: flex;
   margin: auto;
-  width: 23%;
+  width: 34%;
   justify-content: space-evenly;
 }
 
+<<<<<<< HEAD
+
+=======
 .nothumb {
   background-color: #ccc;
   width: 400px;
   height: 250px;
 }
+>>>>>>> f5a81d21d81c32d29bc5385ce0e5c1ddfedf39c2
 
 .list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-width: $max-width;
-  margin: 40px auto;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  &__all {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 40px auto;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  &__row__html, &__row__css, &__row__javascript {
+    display: flex;
+    flex-direction: row;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  @media (min-width: 501px) {
+    &__row__html, &__row__css, &__row__javascript {
+      width: 50%; 
+    } 
+  }
+  @media (min-width: 1001px) {
+    &__row__html, &__row__css, &__row__javascript {
+      width: 33.33333%; 
+    } 
+  }
 
   .listItem {
     display: flex;
     flex-direction: column;
     text-decoration: none;
+<<<<<<< HEAD
+    width: 100%;
+    background-color: #ccc;
+=======
     justify-content: center;
+>>>>>>> f5a81d21d81c32d29bc5385ce0e5c1ddfedf39c2
     color: color(cBlack);
-    width: 400px;
 
     &__image {
       height: 100%;
