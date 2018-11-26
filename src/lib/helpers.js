@@ -18,90 +18,6 @@ export function el() {
 
 
 export function filterLectures() {
-<<<<<<< HEAD
- /* const html = document.querySelectorAll('.list__row__html');
-  const css = document.querySelectorAll('.list__row__css');
-  const js = document.querySelectorAll('.list__row__javascript');
-
-  let htmlButton = document.querySelector('.htmlTakki');
-  htmlButton.addEventListener('click', htmlFilter);
-
-  let cssButton = document.querySelector('.cssTakki');
-  cssButton.addEventListener('click', cssFilter);
-
-  let jsButton = document.querySelector('.JavascriptTakki');
-  jsButton.addEventListener('click', jsFilter);
-
-  console.log(css);
-  debugger;*/
-}
-/*
-export function htmlFilter() {
-  htmlButton.classList.toggle('button--active');
-
-  if (htmlButton.classList.contains('button--active')) {
-    html.forEach(
-      function (currentValue) {
-        currentValue.classList.remove('--hidden');
-        currentValue.classList.add('--active');
-      }
-    );
-  }
-  if (!cssButton.classList.contains('button--active')) {
-    css.forEach(
-      function (currentValue) {
-        currentValue.classList.add('--hidden');
-      }
-    );
-  }
-
-  if (!jsButton.classList.contains('button--active')) {
-    js.forEach(
-      function (currentValue) {
-        currentValue.classList.add('--hidden');
-      }
-    );
-  }
-
-}
-
-export function cssFilter() {
-  cssButton.classList.toggle('button--active');
-
-  if (cssButton.classList.contains('button--active')) {
-    css.forEach(
-      function (currentValue) {
-        currentValue.classList.remove('--hidden');
-        currentValue.classList.add('--active');
-      }
-    );
-  }
-
-  if (!cssButton.classList.contains('button--active')) {
-    css.forEach(
-      function (currentValue) {
-        currentValue.classList.remove('--active');
-
-      }
-    );
-  }
-
-  if (!htmlButton.classList.contains('button--active')) {
-    html.forEach(
-      function (currentValue) {
-        currentValue.classList.add('--hidden');
-      }
-    );
-  }
-
-  if (!jsButton.classList.contains('button--active')) {
-    js.forEach(
-      function (currentValue) {
-        currentValue.classList.toggle('--hidden');
-      }
-    );
-  }
-=======
 
 }
 
@@ -126,16 +42,10 @@ export function hideCards(value) {
     }
   }
   
->>>>>>> 4564d0f64046f5ca20691a3f3933e02dceb57fff
 }
 
 var buttonCounter = 0;
 
-<<<<<<< HEAD
-export function jsFilter() {
-  jsButton.classList.toggle('button--active');
-
-=======
 export function readButton(button) {
   var bTarget = button.target;
 
@@ -161,17 +71,10 @@ export function readButton(button) {
   }
   
 }
->>>>>>> 4564d0f64046f5ca20691a3f3933e02dceb57fff
 
-}
-*/
 
 export function renderCard(lectures) {
-<<<<<<< HEAD
-  const div1 = document.querySelector('.list__all');
-=======
   const div1 = document.querySelector('.list');
->>>>>>> 4564d0f64046f5ca20691a3f3933e02dceb57fff
 
   let newDiv1 = document.createElement('div');
   newDiv1.setAttribute('class', 'card ' + lectures.category);
