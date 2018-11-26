@@ -101,7 +101,15 @@ img {
   justify-content: space-evenly;
 }
 
+<<<<<<< HEAD
 
+=======
+.nothumb {
+  background-color: #ccc;
+  width: 400px;
+  height: 250px;
+}
+>>>>>>> f5a81d21d81c32d29bc5385ce0e5c1ddfedf39c2
 
 .list {
   margin: 0 auto;
@@ -139,14 +147,20 @@ img {
     display: flex;
     flex-direction: column;
     text-decoration: none;
+<<<<<<< HEAD
     width: 100%;
     background-color: #ccc;
+=======
+    justify-content: center;
+>>>>>>> f5a81d21d81c32d29bc5385ce0e5c1ddfedf39c2
     color: color(cBlack);
 
     &__image {
-      width: 100%;
       height: 100%;
-      background-size: cover;
+    }
+
+    &__bottom {
+      height: 100%;
     }
   }
 }
@@ -165,3 +179,4 @@ img {
 }
 
 @import "button.scss";
+@import "lectureCard.scss";
