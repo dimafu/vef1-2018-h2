@@ -1,5 +1,11 @@
 import Lecture from "./lectures";
 
+const htmlButton = document.querySelector('.htmlTakki');
+const cssButton = document.querySelector('.cssTakki');
+const jsButton = document.querySelector('.JavascriptTakki');
+const div1 = document.querySelector('.list__all');
+const listRow = document.querySelectorAll('.list__row__');
+
 export function empty(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
@@ -12,78 +18,100 @@ export function el() {
 
 
 export function filterLectures() {
-  /*  let html = document.querySelectorAll('.list__row__html');
-    let css = document.querySelectorAll('.list__row__css');
-    let js = document.querySelectorAll('.list__row__javascript');
-    let listRowAll =html + css + js;
-    console.log(listRowAll);
-  */
+ /* const html = document.querySelectorAll('.list__row__html');
+  const css = document.querySelectorAll('.list__row__css');
+  const js = document.querySelectorAll('.list__row__javascript');
+
   let htmlButton = document.querySelector('.htmlTakki');
   htmlButton.addEventListener('click', htmlFilter);
 
   let cssButton = document.querySelector('.cssTakki');
   cssButton.addEventListener('click', cssFilter);
 
-  let jsButton = document.querySelector('.javascriptTakki');
+  let jsButton = document.querySelector('.JavascriptTakki');
   jsButton.addEventListener('click', jsFilter);
-  
+
+  console.log(css);
+  debugger;*/
+}
+/*
+export function htmlFilter() {
+  htmlButton.classList.toggle('button--active');
+
+  if (htmlButton.classList.contains('button--active')) {
+    html.forEach(
+      function (currentValue) {
+        currentValue.classList.remove('--hidden');
+        currentValue.classList.add('--active');
+      }
+    );
+  }
+  if (!cssButton.classList.contains('button--active')) {
+    css.forEach(
+      function (currentValue) {
+        currentValue.classList.add('--hidden');
+      }
+    );
+  }
+
+  if (!jsButton.classList.contains('button--active')) {
+    js.forEach(
+      function (currentValue) {
+        currentValue.classList.add('--hidden');
+      }
+    );
+  }
+
+}
+
+export function cssFilter() {
+  cssButton.classList.toggle('button--active');
+
+  if (cssButton.classList.contains('button--active')) {
+    css.forEach(
+      function (currentValue) {
+        currentValue.classList.remove('--hidden');
+        currentValue.classList.add('--active');
+      }
+    );
+  }
+
+  if (!cssButton.classList.contains('button--active')) {
+    css.forEach(
+      function (currentValue) {
+        currentValue.classList.remove('--active');
+
+      }
+    );
+  }
+
   if (!htmlButton.classList.contains('button--active')) {
     html.forEach(
       function (currentValue) {
         currentValue.classList.add('--hidden');
       }
     );
-   }
-}
+  }
 
-export function htmlFilter() {
-  let htmlButton = document.querySelector('.htmlTakki');
-  //  let html = document.querySelectorAll('.list__row__html');
-  htmlButton.classList.toggle('button--active');
- /* html.forEach(
-    function (currentValue) {
-      currentValue.classList.toggle('--hidden');
-    }
-  );
-  /*  if (!htmlButton.classList.contains('button--active')) {
-     html.forEach(
-       function (currentValue) {
-         currentValue.classList.add('--hidden');
-       }
-     );
-    }*/
-}
-export function cssFilter() {
-  let cssButton = document.querySelector('.cssTakki');
-  let css = document.querySelectorAll('.list__row__css');
-  cssButton.classList.toggle('button--active');
-  css.forEach(
-    function (currentValue) {
-      currentValue.classList.toggle('--hidden');
-    }
-  );
+  if (!jsButton.classList.contains('button--active')) {
+    js.forEach(
+      function (currentValue) {
+        currentValue.classList.toggle('--hidden');
+      }
+    );
+  }
 }
 
 
 export function jsFilter() {
-  let jsButton = document.querySelector('.javascriptTakki');
-  let js = document.querySelectorAll('.list__row__javascript');
   jsButton.classList.toggle('button--active');
-  js.forEach(
-    function (currentValue) {
-      currentValue.classList.toggle('--hidden');
-    }
-  );
+
 
 }
-
+*/
 
 export function renderCard(lectures) {
-<<<<<<< HEAD
   const div1 = document.querySelector('.list__all');
-=======
-  let div1 = document.querySelector('.list__col');
->>>>>>> f5a81d21d81c32d29bc5385ce0e5c1ddfedf39c2
 
   let newDiv1 = document.createElement('div');
   newDiv1.setAttribute('class', 'list__row__' + lectures.category);
