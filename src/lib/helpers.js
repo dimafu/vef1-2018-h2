@@ -10,12 +10,15 @@ export function el() {
 
 }
 
-/*
-export function filterLectures () {
-  let htmlButton = document.querySelector('.htmlTakki');
-  htmlButton.addEventListener('click', htmlFilter);
 
-  
+export function filterLectures() {
+  let htmlButton = document.querySelector('.htmlTakki');
+  //htmlButton.classList.toggle('--active');
+  htmlButton.addEventListener('click', htmlFilter);
+} //fjalægja
+
+
+/*
   let cssButton = document.querySelector('.cssTakki');
   cssButton.addEventListener('click', cssFilter);
 
@@ -23,28 +26,33 @@ export function filterLectures () {
   jsButton.addEventListener('click', jsFilter);
 
 }
-
-export function htmlFilter () {
-  let html = document.querySelector('.list__row__html');
-  html.classList.toggle("--hidden"));
-
-}
-export function cssFilter () {
-  let css = document.querySelector('.list__row__css');
-  css.classList.toggle("--hidden"));
+*/
+export function htmlFilter() {
+  let html = document.querySelectorAll('.card__row__html');
+  console.log(html);
+  html.classList.toggleClass(' --hidden');
+  //htmlButton.classList.toggle('--active');
+  debugger;
 
 }
-export function jsFilter () {
-  let js = document.querySelector('.list__row__javascript');
-  js.classList.toggle("--hidden"));
+
+/*
+export function cssFilter() {
+  let css = document.querySelector('.card__row__css');
+  css.classList.toggle("--hidden");
+
+}
+export function jsFilter() {
+  let js = document.querySelector('.card__row__javascript');
+  js.classList.toggle("--hidden");
 
 }
 */
 export function renderCard(lectures) {
-  let div1 = document.querySelector('.list');
+  let div1 = document.querySelector('.list__col');
 
   let newDiv1 = document.createElement('div');
-  newDiv1.setAttribute('class', 'list__row__' + lectures.category);
+  newDiv1.setAttribute('class', 'card__row__' + lectures.category);
   div1.appendChild(newDiv1);
 
   let newLink = document.createElement('a');
