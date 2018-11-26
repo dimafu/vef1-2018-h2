@@ -95,7 +95,7 @@ img {
 .nothumb {
   background-color: #ccc;
   width: 400px;
-  height: 245px;
+  height: 250px;
 }
 
 .list {
@@ -109,13 +109,16 @@ img {
     display: flex;
     flex-direction: column;
     text-decoration: none;
+    justify-content: center;
     color: color(cBlack);
     width: 400px;
 
     &__image {
-      width: 100%;
       height: 100%;
-      background-size: cover;
+    }
+
+    &__bottom {
+      height: 100%;
     }
   }
 }
