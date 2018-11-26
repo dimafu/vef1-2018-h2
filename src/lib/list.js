@@ -1,5 +1,4 @@
-import { empty, el, /*improtar el líka úr helpes*/ 
-renderCard} from './helpers';
+import { empty, el, /* improtar el líka úr helpes */ renderCard} from './helpers';
 
 export default class List {
   constructor() {
@@ -27,7 +26,7 @@ export default class List {
 
   renderLectures(data) {
     console.log(data);
-    //kalla á hjálparföll for creating elements
+   //kalla á hjálparföll for creating elements
     data.forEach((lec) => { //?? data
       const htmlLec = renderCard(lec);
      //htmlLectures.push(htmlLec);

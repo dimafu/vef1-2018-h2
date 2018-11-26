@@ -88,7 +88,7 @@ img {
 .navbar {
   display: flex;
   margin: auto;
-  width: 23%;
+  width: 34%;
   justify-content: space-evenly;
 }
 
@@ -134,6 +134,14 @@ img {
   span {
     font-size: 16px;
   }
+}
+
+.lecture {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: $max-width;
+  margin: 40px auto;
 }
 
 @import "button.scss";
