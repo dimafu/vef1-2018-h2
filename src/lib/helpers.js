@@ -41,7 +41,7 @@ export function jsFilter () {
 }
 */
 export function renderCard(lectures) {
-  const div1 = document.querySelector('.list');
+  const div1 = document.querySelector('.list__all');
 
   const newDiv1 = document.createElement('div');
   newDiv1.setAttribute('class', 'list__row__' + lectures.category);
