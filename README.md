@@ -20,21 +20,21 @@ INFO. Most of all is set up in 12 columns grid with `20px` gutter.
 
 INFO. All intervals are half, whole, double or triple of the gutter. Possible to use the ruler (t.d. http://www.arulerforwindows.com/ or http://www.pascal.com/software/freeruler/) to find the exact sizes, but the most that matters is that solution is similar and is not exactly as in the example.
 
-All animation is done in `300ms` with `ease-in-out` acceleration function. Animations take place when hovered over the lectures in the list and filter buttons.
+DONE. All animation is done in `300ms` with `ease-in-out` acceleration function. Animations take place when hovered over the lectures in the list and filter buttons.
 
 ## Forsíða
 
-Front page contains the list of all lectures. It becomes indicated whether the is finished or not. Checkmark `✓` should be used to indicate that the lecture is finished, See below how it functions.
+Front page contains the list of all lectures. It becomes indicated whether it is finished or not. Checkmark `✓` should be used to indicate that the lecture is finished, See below how it functions.
 
-Three buttons, one for each group should be above the list: `HTML`, `CSS` og `JavaScript`. In the beginning none of the buttons are active and when the button is activated lectures in the active group should only be displayed and the button should be colored with `#2d2`. If more buttons are activated should also show lectures from this group. Ef allir takkar eru virkir sést það sama og ef allir eru óvirkir—allir fyrirlestrar. If all the buttons are activated it is the same as if all are deactivated showing all the lectures.
+DONE. Three buttons, one for each group should be above the list: `HTML`, `CSS` og `JavaScript`. In the beginning none of the buttons are active and when the button is activated lectures in the active group should only be displayed and the button should be colored with `#2d2`. If more buttons are activated should also show lectures from this group. If all the buttons are activated it is the same as if all are deactivated showing all the lectures.
 
-When clicked on the lecture it is redirected over to `fyrirlestur.html?slug=<slug>` where `<slug>` is _slug_ for the lecture, e.g. `fyrirlestur.html?slug=html-sagan`. Possible to use `URLSearchParams` and `window.location.search` to know to which lecture is directed on `fyrirlestur.html` page.
+DONE. When clicked on the lecture it is redirected over to `fyrirlestur.html?slug=<slug>` where `<slug>` is _slug_ for the lecture, e.g. `fyrirlestur.html?slug=html-sagan`. Possible to use `URLSearchParams` and `window.location.search` to know to which lecture is directed on `fyrirlestur.html` page.
 
 ## Fyrirlestur
 
 For each lecture should display header and all the lecture material that comes after that. In the header comes group and title.
 
-Lecture material is store in an array and should display it in the same order as it is defined. Appearance for each unit should be prepared according to the outlook.
+Lecture material is stored in an array and should display it in the same order as it is defined. Appearance for each unit should be prepared according to the outlook.
 
 At the bottom is a button to mark a lecture that is finished and link to go back.
 
