@@ -13,6 +13,13 @@ export function el(parent, child, textnode, classname) {
   return element;
 }
 
+function elTextBreak(text) {
+  const textArr = text.split('\n');
+  const textPtagged = textArr.join('</p><p>');
+  const temp = '<p>'.concat('', textPtagged).concat('', '</p>');
+  return temp;
+}
+
 // Function to append the data to the lecture page
 function appLecMaterial(div, element, data, classname, attrib) {
   // Append only, if the data is defined
@@ -25,6 +32,8 @@ function appLecMaterial(div, element, data, classname, attrib) {
     htmlEl.setAttribute('class', classname);
     if (element === 'img' || element === 'iframe') {
       htmlEl.setAttribute('src', data);
+    } else if (element === 'p') {
+      htmlEl.innerHTML = elTextBreak(data);
     } else {
       htmlEl.appendChild(document.createTextNode(data));
     }
@@ -140,7 +149,7 @@ export function rendLecture(lecture) {
       appLecMaterial(div1, 'iframe', elem.data, elem.type);
     }
     if (elem.type === 'text') {
-      appLecMaterial(div1, 'div', elem.data, elem.type);
+      appLecMaterial(div1, 'p', elem.data, elem.type);
     }
     if (elem.type === 'quote') {
       appLecMaterial(div1, 'blockquote', elem.data, elem.type, elem.attribute);
