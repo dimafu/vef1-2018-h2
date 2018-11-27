@@ -86,12 +86,11 @@ img {
 .header__img {
   display: flex;
   justify-content: center;
-  background-image: url("/img/header.jpg");
+  background-color: color(cBut);
   height: 25vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  //position: relative;
 }
 
 .navbar {

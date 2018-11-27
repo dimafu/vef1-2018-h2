@@ -96,8 +96,11 @@ export function readButton(button) {
 
 
 export function renderCard(lectures) {
+  // Set front page header background image
+  const headerimg = document.querySelector('.header__img');
+  headerimg.style.backgroundImage = "url('/img/header.jpg')";
   const div1 = document.querySelector('.list');
-
+  // Creating elements for the card
   const newDiv1 = el(div1, 'div', '');
   newDiv1.setAttribute('class', `card ${lectures.category}`);
 
@@ -106,11 +109,9 @@ export function renderCard(lectures) {
 
   const newDiv2 = el(newLink, 'div', '', 'listItem__image');
 
+  const img = el(newDiv2, 'img');
   if (lectures.thumbnail) {
-    const img = el(newDiv2, 'img');
     img.setAttribute('src', lectures.thumbnail);
-  } else {
-    el(newDiv2, 'img', '', 'nothumb');
   }
 
   const newDiv3 = el(newLink, 'div', '', 'listItem__bottom');
@@ -125,15 +126,18 @@ export function renderCard(lectures) {
 }
 
 export function rendLecture(lecture) {
+  // Set background image
+  const headerimg = document.querySelector('.header__img');
+  headerimg.style.backgroundImage = `url(${lecture.image})`;
+  // Set header titles
   const headertext = document.querySelector('.header__text');
-
   headertext.children[0].appendChild(document.createTextNode(lecture.category));
   headertext.children[1].appendChild(document.createTextNode(lecture.title));
 
   const div1 = document.querySelector('.lecture');
 
-  console.log(lecture.content);
-
+  console.log(lecture);
+  // create elements accodring to a type of data
   lecture.content.forEach((elem) => {
     if (elem.type === 'youtube') {
       appLecMaterial(div1, 'iframe', elem.data, elem.type);
