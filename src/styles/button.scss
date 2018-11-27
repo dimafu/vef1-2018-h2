@@ -1,5 +1,12 @@
 @import "config";
 
+.navbar {
+  display: flex;
+  margin: auto;
+  width: 34%;
+  justify-content: space-evenly;
+}
+
 .buttons__button {
   display: block;
 
@@ -14,6 +21,8 @@
   text-align: center;
   text-decoration: none;
 
+  transition: 0.3s ease-in-out;
+
   cursor: pointer;
   background-color: color(cBut);
 
@@ -26,6 +35,7 @@
 
   &.button-active {
     background-color: color(cButAct);
+    transition: 0.3s ease-in-out;
     &:hover {
       background-color: color(cButActHov);
     }

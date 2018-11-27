@@ -52,8 +52,8 @@ main {
 }
 @media (min-width: 1200px) {
   main {
-  padding-left: 0px;
-  padding-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 
@@ -62,106 +62,7 @@ img {
   max-width: 100%;
 }
 
-// TODO import
-.header {
-  font-family: $font-family-heading;
-  margin-bottom: 40px;
-}
-
-.header__text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  h1 {
-    font-size: 48px;
-    text-align: center;
-  }
-  h3 {
-    font-size: 16px;
-    text-align: center;
-  }
-}
-
-.header__img {
-  display: flex;
-  justify-content: center;
-  background-color: color(cBut);
-  height: 25vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.navbar {
-  display: flex;
-  margin: auto;
-  width: 34%;
-  justify-content: space-evenly;
-}
-
-.page__cards {
-  margin: 0 auto;
-  max-width: 1200px;
-
-  .list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 40px auto;
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-  .card {
-    display: flex;
-    flex-direction: row;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-bottom: 20px;
-    width: 100%;
-    &.card-hidden {
-      display: none;
-    }
-  }
-
-  @media (min-width: 501px) {
-    .card {
-      width: 50%; 
-    } 
-  }
-  @media (min-width: 1001px) {
-    .card {
-      width: 33.33333%; 
-    } 
-  }
-
-  .listItem {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    width: 100%;
-    background-color: #ccc;
-    color: color(cBlack);
-
-    &__image {
-      height: 100%;
-    }
-
-  }
-}
-
-.listItem__text {
-  background-color: color(cBut);
-  font-family: $font-family-heading;
-
-  h2 {
-    font-size: 32px;
-    word-wrap: break-word;
-  }
-  span {
-    font-size: 16px;
-  }
-}
-
+@import "header.scss";
+@import "cards.scss";
 @import "button.scss";
 @import "lecture.scss";

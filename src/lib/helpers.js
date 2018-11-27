@@ -96,9 +96,6 @@ export function readButton(button) {
 
 
 export function renderCard(lectures) {
-  // Set front page header background image
-  const headerimg = document.querySelector('.header__img');
-  headerimg.style.backgroundImage = "url('/img/header.jpg')";
   const div1 = document.querySelector('.list');
   // Creating elements for the card
   const newDiv1 = el(div1, 'div', '');
