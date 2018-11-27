@@ -164,13 +164,5 @@ img {
   }
 }
 
-.lecture {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-width: $max-width;
-  margin: 40px auto;
-}
-
 @import "button.scss";
 @import "lecture.scss";

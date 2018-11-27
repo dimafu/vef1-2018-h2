@@ -3,19 +3,12 @@ export function empty(element) {
     element.removeChild(element.firstChild);
   }
 }
-
-export function el(name, ...children) {
-  const element = document.createElement(name);
-
-  if (Array.isArray(children)) {
-    children.forEach((child) => {
-      if (typeof child === 'string') {
-        element.appendChild(document.createTextNode(child));
-      } else if (child) {
-        element.appendChild(child);
-      }
-    });
-  }
+// Function for creating elements. Used in renderCard()
+export function el(parent, child, textnode, classname) {
+  const element = document.createElement(child);
+  element.appendChild(document.createTextNode(textnode));
+  element.classList.add(classname);
+  parent.appendChild(element);
 
   return element;
 }
@@ -23,8 +16,9 @@ export function el(name, ...children) {
 // Function to append the data to the lecture page
 function appLecMaterial(div, element, data, classname, attrib) {
   // Append only, if the data is defined
+  const subdiv = document.createElement('div');
   if (data !== undefined) {
-    const subdiv = document.createElement('div');
+    // const subdiv = document.createElement('div');
     subdiv.classList.add('lecelem');
     subdiv.classList.add(classname);
     const htmlEl = document.createElement(element);
@@ -37,13 +31,11 @@ function appLecMaterial(div, element, data, classname, attrib) {
     subdiv.appendChild(htmlEl);
     div.appendChild(subdiv);
     if (element === 'blockquote') {
-      const cite = appLecMaterial(subdiv, 'cite', attrib, classname)
-      // const cite = document.createElement('cite');
-      // cite.appendChild(document.createTextNode(attrib));
-      // subdiv.appendChild(cite);
+      appLecMaterial(subdiv, 'cite', attrib, classname);
     }
-    return subdiv;
+    // return subdiv;
   }
+  return subdiv;
 }
 
 
@@ -74,14 +66,14 @@ export function hideCards(value) {
 
 }
 
-var buttonCounter = 0;
+let buttonCounter = 0;
 
 export function readButton(button) {
   const bTarget = button.target;
 
   if (bTarget.classList.contains('button-active')) {
     bTarget.className = 'buttons__button';
-    buttonCounter--;
+    buttonCounter -= 1;
     if (buttonCounter === 0) {
       showCards('html');
       showCards('css');
@@ -89,7 +81,7 @@ export function readButton(button) {
     }
   } else {
     bTarget.classList.add('button-active');
-    buttonCounter++;
+    buttonCounter += 1;
   }
 
   for (let buttons of document.querySelectorAll('.button-active')) {
@@ -106,46 +98,28 @@ export function readButton(button) {
 export function renderCard(lectures) {
   const div1 = document.querySelector('.list');
 
-  let newDiv1 = document.createElement('div');
-  newDiv1.setAttribute('class', 'card ' + lectures.category);
-  div1.appendChild(newDiv1);
+  const newDiv1 = el(div1, 'div', '');
+  newDiv1.setAttribute('class', `card ${lectures.category}`);
 
-  const newLink = document.createElement('a');
-  newLink.setAttribute('class', 'listItem');
-  newLink.setAttribute('href', 'fyrirlestur.html?slug=' + lectures.slug);
-  newDiv1.appendChild(newLink);
+  const newLink = el(newDiv1, 'a', '', 'listItem');
+  newLink.setAttribute('href', `fyrirlestur.html?slug=${lectures.slug}`);
 
-  const newDiv2 = document.createElement('div');
-  newDiv2.setAttribute('class', 'listItem__image');
-  newLink.appendChild(newDiv2);
+  const newDiv2 = el(newLink, 'div', '', 'listItem__image');
 
   if (lectures.thumbnail) {
-    const img = document.createElement('img');
-    img.setAttribute('src', lectures.thumbnail); // if no thumbnail ??
-    newDiv2.appendChild(img);
+    const img = el(newDiv2, 'img');
+    img.setAttribute('src', lectures.thumbnail);
   } else {
-    const img = document.createElement('div');
-    img.setAttribute('class', 'nothumb');
-    newDiv2.appendChild(img);
+    el(newDiv2, 'img', '', 'nothumb');
   }
 
-  const newDiv3 = document.createElement('div');
-  newDiv3.setAttribute('class', 'listItem__bottom');
-  newLink.appendChild(newDiv3);
+  const newDiv3 = el(newLink, 'div', '', 'listItem__bottom');
 
-  const newDiv4 = document.createElement('div');
-  newDiv4.setAttribute('class', 'listItem__text');
-  newDiv3.appendChild(newDiv4);
+  const newDiv4 = el(newDiv3, 'div', '', 'listItem__text');
 
-  const span = document.createElement('span');
-  span.appendChild(document.createTextNode(lectures.category));
-  span.setAttribute('class', 'listItem__category');
-  newDiv4.appendChild(span);
+  el(newDiv4, 'span', lectures.category, 'listItem__category');
 
-  const newH2 = document.createElement('h2');
-  newH2.appendChild(document.createTextNode(lectures.title));
-  newH2.setAttribute('class', 'listItem__title');
-  newDiv4.appendChild(newH2);
+  el(newDiv4, 'h2', lectures.title, 'listItem__title');
 
   return lectures;
 }
@@ -156,44 +130,31 @@ export function rendLecture(lecture) {
   headertext.children[0].appendChild(document.createTextNode(lecture.category));
   headertext.children[1].appendChild(document.createTextNode(lecture.title));
 
-  // const newDiv1 = document.createElement('div');
-  // div1.appendChild(newDiv1);
-
   const div1 = document.querySelector('.lecture');
-  console.log(div1);
 
   console.log(lecture.content);
 
   lecture.content.forEach((elem) => {
     if (elem.type === 'youtube') {
-      const divYou = appLecMaterial(div1, 'iframe', elem.data, elem.type);
-      divYou.setAttribute('class', 'youtube');
-      // divYou.setAttribute('width', 600);
-      // divYou.setAttribute('height', 400);
+      appLecMaterial(div1, 'iframe', elem.data, elem.type);
     }
     if (elem.type === 'text') {
-      const divText = appLecMaterial(div1, 'div', elem.data, elem.type);
-      // console.log(divText);
+      appLecMaterial(div1, 'div', elem.data, elem.type);
     }
     if (elem.type === 'quote') {
-      const quote = appLecMaterial(div1, 'blockquote', elem.data, elem.type, elem.attribute);
-      // console.log(quote);
+      appLecMaterial(div1, 'blockquote', elem.data, elem.type, elem.attribute);
     }
     if (elem.type === 'image') {
-      const image = appLecMaterial(div1, 'img', elem.data, elem.type);
-      // console.log(image);
+      appLecMaterial(div1, 'img', elem.data, elem.type);
     }
     if (elem.type === 'heading') {
-      const heading = appLecMaterial(div1, 'h1', elem.data, elem.type);
-      // console.log(heading);
+      appLecMaterial(div1, 'h1', elem.data, elem.type);
     }
     if (elem.type === 'list') {
-      const uList = appLecMaterial(div1, 'ul', elem.data, elem.type);
-      // console.log(uList);
+      appLecMaterial(div1, 'ul', elem.data, elem.type);
     }
     if (elem.type === 'code') {
-      const code = appLecMaterial(div1, 'pre', elem.data, elem.type);
-      // console.log(uList);
+      appLecMaterial(div1, 'pre', elem.data, elem.type);
     }
   })
 

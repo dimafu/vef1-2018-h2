@@ -38,4 +38,4 @@ function makeHeader (jsonObj) {
 
    document.header.style.backgroundImage = url(headarImg);
 
-}*/
+} */

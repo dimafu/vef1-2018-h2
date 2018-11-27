@@ -1,6 +1,14 @@
 @import "config";
 // Styles for fyrirlestur.html page
 
+.lecture {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: $max-width;
+  margin: 40px auto;
+}
+
 .lecelem {
   
 }
