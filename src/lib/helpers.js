@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Lecture from "./lectures";
 
 const htmlButton = document.querySelector('.htmlTakki');
@@ -6,14 +7,46 @@ const jsButton = document.querySelector('.JavascriptTakki');
 const div1 = document.querySelector('.list__all');
 const listRow = document.querySelectorAll('.list__row__');
 
+=======
+>>>>>>> a0be5766e21cdfe31a3e7f1764f4fafe54854163
 export function empty(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
   }
 }
+// Function for creating elements. Used in renderCard()
+export function el(parent, child, textnode, classname) {
+  const element = document.createElement(child);
+  element.appendChild(document.createTextNode(textnode));
+  element.classList.add(classname);
+  parent.appendChild(element);
 
-export function el() {
+  return element;
+}
 
+// Function to append the data to the lecture page
+function appLecMaterial(div, element, data, classname, attrib) {
+  // Append only, if the data is defined
+  const subdiv = document.createElement('div');
+  if (data !== undefined) {
+    // const subdiv = document.createElement('div');
+    subdiv.classList.add('lecelem');
+    subdiv.classList.add(classname);
+    const htmlEl = document.createElement(element);
+    htmlEl.setAttribute('class', classname);
+    if (element === 'img' || element === 'iframe') {
+      htmlEl.setAttribute('src', data);
+    } else {
+      htmlEl.appendChild(document.createTextNode(data));
+    }
+    subdiv.appendChild(htmlEl);
+    div.appendChild(subdiv);
+    if (element === 'blockquote') {
+      appLecMaterial(subdiv, 'cite', attrib, classname);
+    }
+    // return subdiv;
+  }
+  return subdiv;
 }
 
 
@@ -22,8 +55,8 @@ export function filterLectures() {
 }
 
 export function showCards(value) {
-  let newValue = value.toLowerCase();
-  
+  const newValue = value.toLowerCase();
+
   for (let card of document.querySelectorAll('.card')) {
     if (card.classList.contains(newValue)) {
       card.className = `card ${newValue}`;
@@ -32,8 +65,8 @@ export function showCards(value) {
 }
 
 export function hideCards(value) {
-  let newValue = value.toLowerCase();
-  
+  const newValue = value.toLowerCase();
+
   for (let card of document.querySelectorAll('.card')) {
     if (!card.classList.contains(newValue)) {
       card.classList.add('card-hidden');
@@ -41,17 +74,17 @@ export function hideCards(value) {
       card.className = `card ${newValue}`;
     }
   }
-  
+
 }
 
-var buttonCounter = 0;
+let buttonCounter = 0;
 
 export function readButton(button) {
-  var bTarget = button.target;
+  const bTarget = button.target;
 
   if (bTarget.classList.contains('button-active')) {
     bTarget.className = 'buttons__button';
-    buttonCounter--;
+    buttonCounter -= 1;
     if (buttonCounter === 0) {
       showCards('html');
       showCards('css');
@@ -59,7 +92,7 @@ export function readButton(button) {
     }
   } else {
     bTarget.classList.add('button-active');
-    buttonCounter++;
+    buttonCounter += 1;
   }
 
   for (let buttons of document.querySelectorAll('.button-active')) {
@@ -69,55 +102,72 @@ export function readButton(button) {
   for (let buttons of document.querySelectorAll('.button-active')) {
     showCards(`${buttons.innerHTML}`);
   }
-  
+
 }
 
 
 export function renderCard(lectures) {
   const div1 = document.querySelector('.list');
 
-  let newDiv1 = document.createElement('div');
-  newDiv1.setAttribute('class', 'card ' + lectures.category);
-  div1.appendChild(newDiv1);
+  const newDiv1 = el(div1, 'div', '');
+  newDiv1.setAttribute('class', `card ${lectures.category}`);
 
-  const newLink = document.createElement('a');
-  newLink.setAttribute('class', 'listItem');
-  newLink.setAttribute('href', 'fyrirlestur.html?slug=' + lectures.slug);
-  newDiv1.appendChild(newLink);
+  const newLink = el(newDiv1, 'a', '', 'listItem');
+  newLink.setAttribute('href', `fyrirlestur.html?slug=${lectures.slug}`);
 
-  const newDiv2 = document.createElement('div');
-  newDiv2.setAttribute('class', 'listItem__image');
-  newLink.appendChild(newDiv2);
+  const newDiv2 = el(newLink, 'div', '', 'listItem__image');
 
   if (lectures.thumbnail) {
-    const img = document.createElement('img');
-    img.setAttribute('src', lectures.thumbnail); // if no thumbnail ??
-    newDiv2.appendChild(img);
+    const img = el(newDiv2, 'img');
+    img.setAttribute('src', lectures.thumbnail);
   } else {
-    const img = document.createElement('div');
-    img.setAttribute('class', 'nothumb');
-    newDiv2.appendChild(img);
+    el(newDiv2, 'img', '', 'nothumb');
   }
 
-  const newDiv3 = document.createElement('div');
-  newDiv3.setAttribute('class', 'listItem__bottom');
-  newLink.appendChild(newDiv3);
+  const newDiv3 = el(newLink, 'div', '', 'listItem__bottom');
 
-  const newDiv4 = document.createElement('div');
-  newDiv4.setAttribute('class', 'listItem__text');
-  newDiv3.appendChild(newDiv4);
+  const newDiv4 = el(newDiv3, 'div', '', 'listItem__text');
 
-  const span = document.createElement('span');
-  span.appendChild(document.createTextNode(lectures.category));
-  span.setAttribute('class', 'listItem__category');
-  newDiv4.appendChild(span);
+  el(newDiv4, 'span', lectures.category, 'listItem__category');
 
-  const newH2 = document.createElement('h2');
-  newH2.appendChild(document.createTextNode(lectures.title));
-  newH2.setAttribute('class', 'listItem__title');
-  newDiv4.appendChild(newH2);
+  el(newDiv4, 'h2', lectures.title, 'listItem__title');
 
   return lectures;
 }
 
+export function rendLecture(lecture) {
+  const headertext = document.querySelector('.header__text');
 
+  headertext.children[0].appendChild(document.createTextNode(lecture.category));
+  headertext.children[1].appendChild(document.createTextNode(lecture.title));
+
+  const div1 = document.querySelector('.lecture');
+
+  console.log(lecture.content);
+
+  lecture.content.forEach((elem) => {
+    if (elem.type === 'youtube') {
+      appLecMaterial(div1, 'iframe', elem.data, elem.type);
+    }
+    if (elem.type === 'text') {
+      appLecMaterial(div1, 'div', elem.data, elem.type);
+    }
+    if (elem.type === 'quote') {
+      appLecMaterial(div1, 'blockquote', elem.data, elem.type, elem.attribute);
+    }
+    if (elem.type === 'image') {
+      appLecMaterial(div1, 'img', elem.data, elem.type);
+    }
+    if (elem.type === 'heading') {
+      appLecMaterial(div1, 'h1', elem.data, elem.type);
+    }
+    if (elem.type === 'list') {
+      appLecMaterial(div1, 'ul', elem.data, elem.type);
+    }
+    if (elem.type === 'code') {
+      appLecMaterial(div1, 'pre', elem.data, elem.type);
+    }
+  })
+
+  return lecture;
+}

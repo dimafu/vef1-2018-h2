@@ -1,0 +1,39 @@
+@import "config";
+// Styles for fyrirlestur.html page
+
+.lecture {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: $max-width;
+  margin: 40px auto;
+}
+
+.lecelem {
+  
+}
+
+.youtube {
+  width: 600px;
+  height: 400px;
+}
+
+.text {
+  margin: 10px;
+}
+
+.quote {
+  background-color: color(cBut);
+}
+
+.image {
+}
+
+.heading {
+}
+
+.list {
+}
+
+.code {
+}

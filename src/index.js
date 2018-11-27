@@ -1,5 +1,5 @@
 import List from './lib/list';
-import Lecture from './lib/lectures';
+import Lecture from './lib/lecture';
 import { readButton } from './lib/helpers';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -38,4 +38,4 @@ function makeHeader (jsonObj) {
 
    document.header.style.backgroundImage = url(headarImg);
 
-}*/
+} */
