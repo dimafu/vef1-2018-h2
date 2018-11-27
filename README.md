@@ -52,18 +52,17 @@ If a lecture marked finished should show `✓ Fyrirlestur kláraður` in `#2d2`.
 * `title`, lecture title
 * `category`, lecture group
 * `image`, image in the lecture header, may skip, then a gray color should be displayed
-* `thumbnail`, image of a lecture overview, may skip, then should disaply gray color instead
+* `thumbnail`, image of a lecture overview, may skip, then should display gray color instead
 * `content`, array of lecture material
 
-Fyrir efni fyrirlesturs er efni alltaf með:
-For lecture material the content is allways:
+For lecture material the content is always:
 
 * `type`, type of material
 * `data`, data of material
 
 where `type` can be:
 
-* `youtube`, `data` contains a link to youtube video
+* `youtube`, `data` contains a link to youtube video. `Should include the video with <iframe src="<URL>" frameborder="0" allowfullscreen="0"></iframe>`.
 * `text`, `data` contains the data where `\n` marks between the paragraphs, such that a text should be displayed within `<p>`, changed over to `\n`
 * `quote`, `data` contains citation, additionaly can be `attribute` with what it is referenced to
 * `image`, `data` contains path to image, additionally can be `caption` with text and image
