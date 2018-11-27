@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import Lecture from "./lectures";
-
-const htmlButton = document.querySelector('.htmlTakki');
-const cssButton = document.querySelector('.cssTakki');
-const jsButton = document.querySelector('.JavascriptTakki');
-const div1 = document.querySelector('.list__all');
-const listRow = document.querySelectorAll('.list__row__');
-
-=======
->>>>>>> a0be5766e21cdfe31a3e7f1764f4fafe54854163
 export function empty(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
