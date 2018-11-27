@@ -32,7 +32,7 @@ DONE. When clicked on the lecture it is redirected over to `fyrirlestur.html?slu
 
 ## Fyrirlestur
 
-For each lecture should display header and all the lecture material that comes after that. In the header comes group and title.
+DONE. For each lecture should display header and all the lecture material that comes after that. In the header comes group and title.
 
 Lecture material is stored in an array and should display it in the same order as it is defined. Appearance for each unit should be prepared according to the outlook.
 
