@@ -145,11 +145,13 @@ export function renderCard(lectures) {
 
   const newDiv3 = el(newLink, 'div', '', 'listItem__bottom');
 
+  el(newDiv3, 'span', lectures.category, 'listItem__category');
+
   const newDiv4 = el(newDiv3, 'div', '', 'listItem__text');
 
-  el(newDiv4, 'span', lectures.category, 'listItem__category');
-
   el(newDiv4, 'h2', lectures.title, 'listItem__title');
+
+  el(newDiv4, 'h3', '✓', 'listItem__finished');
 
   return lectures;
 }
