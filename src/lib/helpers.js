@@ -136,6 +136,7 @@ export function readButton(button) {
 
 
 export function renderCard(lectures) {
+ 
   const div1 = document.querySelector('.list');
   // Creating elements for the card
   const newDiv1 = el(div1, 'div', '');
@@ -165,7 +166,6 @@ export function renderCard(lectures) {
 }
 
 export function rendLecture(lecture) {
-
 
   // Set background image
   const headerimg = document.querySelector('.header__img');
