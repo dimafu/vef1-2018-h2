@@ -225,7 +225,7 @@ export function finishLec() {
     
     else {
       finishButton.classList.add('button-active');
-      finishButton.textContent = "✓ Klára fyrirlestur";
+      finishButton.textContent = "✓ Fyrirlestur kláraður";
       localStorage.setItem('finishbutton', window.location.href.split('=')[1]);
       
     }
