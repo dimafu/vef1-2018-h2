@@ -15,7 +15,7 @@ $lec-width: $max-width * 0.66111111;
 .lecelem {
   max-width: $lec-width;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .youtube {
@@ -33,7 +33,10 @@ p {
 }
 
 .quote {
+  display: flex;
+  flex-direction: column;
   background-color: color(cBut);
+  margin: 10px;
 }
 
 .image {
@@ -43,6 +46,7 @@ p {
 .heading {
   // align-self: flex-start;
   width: 100%;
+  margin-top: 5px;
 }
 
 .list {
@@ -58,8 +62,8 @@ p {
 .bottom__nav {
   display: flex;
   justify-content: center;
- flex-direction: column;
- width: 17%;
- margin: auto;
-
+  flex-direction: column;
+  width: 25%;
+  margin: auto;
+  margin-bottom: 50px;
 }
