@@ -36,7 +36,7 @@ DONE. For each lecture should display header and all the lecture material that c
 
 **TO DO.** Lecture material is stored in an array and should display it in the same order as it is defined. Appearance for each unit should be prepared according to the outlook.
 
-**TO DO.** At the bottom is a button to mark a lecture that is finished and link to go back.
+DONE. At the bottom is a button to mark a lecture that is finished and link to go back.
 
 ### Kláraður fyrirlestur
 
