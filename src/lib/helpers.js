@@ -178,7 +178,19 @@ export function rendLecture(lecture) {
   headertext.children[1].appendChild(document.createTextNode(lecture.title));
 
   const div1 = document.querySelector('.lecture');
+  const finishButton = document.getElementById('finish');
+ 
+ // see if lecture is checked finished
+  let a= window.location.href.split('=')[1];
+  
+  for (let i=0; i<localStorage.length; i++) {
 
+    if (localStorage.key(i) === a) {
+        finishButton.classList.add('button-active');
+        finishButton.textContent = "✓ Klára fyrirlestur";
+    }
+  }
+  
   console.log(lecture);
   // create elements accodring to a type of data
   lecture.content.forEach((elem) => {
