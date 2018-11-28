@@ -8,7 +8,7 @@ INFO. Given are [examples](utlit/) in `500px` and `1500px` without the grid alon
 
 INFO. The data is given in `lectures.json` which should be picked up with _ajax_. The project is ran with `browser-sync` to make it work.
 
-**TO DO.** Page material should not be wider than `1200px`. Colors and images in the header shall fill up all the horizontal space. Over the images is 60% opaque white color. Images for each lecture are defined in `json` file.
+DONE. Page material should not be wider than `1200px`. Colors and images in the header shall fill up all the horizontal space. Over the images is 60% opaque white color. Images for each lecture are defined in `json` file.
 
 DONE. Base font size is 16px and all other fonts adopt the following scaling: `16 24 32 48`.
 
