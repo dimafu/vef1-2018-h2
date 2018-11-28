@@ -1,8 +1,8 @@
 # Hópverkefni 2
 
-The project consists of crafting the prototype of the lecture web for the web development course. Given the data which is covering the winter study material.
+INFO. The project consists of crafting the prototype of the lecture web for the web development course. Given the data which is covering the winter study material.
 
-Given are [examples](utlit/) in `500px` and `1500px` without the grid along with `1500px` with grid. All the material should scale neatly in between.
+INFO. Given are [examples](utlit/) in `500px` and `1500px` without the grid along with `1500px` with grid. All the material should scale neatly in between.
 
 ## Almennt
 
@@ -46,7 +46,7 @@ If a lecture marked finished should show `✓ Fyrirlestur kláraður` in `#2d2`.
 
 ## Fyrirlestragögn
 
-`lectures.json` contains an array of lectures that should be displayed. Each lecture can have:
+DONE. `lectures.json` contains an array of lectures that should be displayed. Each lecture can have:
 
 * `slug`, used to link the lecture
 * `title`, lecture title
@@ -55,22 +55,22 @@ If a lecture marked finished should show `✓ Fyrirlestur kláraður` in `#2d2`.
 * `thumbnail`, image of a lecture overview, may skip, then should display gray color instead
 * `content`, array of lecture material
 
-For lecture material the content is always:
+INFO. For lecture material the content is always:
 
 * `type`, type of material
 * `data`, data of material
 
 where `type` can be:
 
-* `youtube`, `data` contains a link to youtube video. `Should include the video with <iframe src="<URL>" frameborder="0" allowfullscreen="0"></iframe>`.
-* `text`, `data` contains the data where `\n` marks between the paragraphs, such that a text should be displayed within `<p>`, changed over to `\n`
+* DONE. `youtube`, `data` contains a link to youtube video. Should include the video with `<iframe src="<URL>" frameborder="0" allowfullscreen="0"></iframe>`.
+* DONE. `text`, `data` contains the data where `\n` marks between the paragraphs, such that a text should be displayed within `<p>`, changed over to `\n`
 * `quote`, `data` contains citation, additionaly can be `attribute` with what it is referenced to
 * `image`, `data` contains path to image, additionally can be `caption` with text and image
-* `heading`, `data` contains headings
+* DONE. `heading`, `data` contains headings
 * `list`, `data` contains array of text in a list
-* `code`, `data` contains code where interval and new lines matter
+* DONE. `code`, `data` contains code where interval and new lines matter
 
-Note that more material can add with what is given in the beginning. The functionality should dominate regardless of whatever material in whatever form is, as long as it follows the rules above.
+INFO. Note that more material can add with what is given in the beginning. The functionality should dominate regardless of whatever material in whatever form is, as long as it follows the rules above.
 
 ## Hópavinna
 
