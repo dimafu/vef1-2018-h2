@@ -1,6 +1,6 @@
 import List from './lib/list';
 import Lecture from './lib/lecture';
-import { readButton } from './lib/helpers';
+import { readButton, finishLec, goBack } from './lib/helpers';
 
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (isLecturePage) {
     const lecture = new Lecture();
     lecture.load();
+    const finishButton = document.getElementById('finish');
+    finishButton.addEventListener("click", finishLec);
+    const backButton = document.getElementById('back');
+    backButton.addEventListener("click", goBack);
   } else {
     const list = new List();
     list.load();
