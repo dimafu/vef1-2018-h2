@@ -1,4 +1,4 @@
-// import { load, save, clear } from './storage';
+import { load, save, clear } from './storage';
 
 export function empty(element) {
   while (element.firstChild) {
@@ -15,47 +15,31 @@ export function el(parent, child, textnode, classname) {
   return element;
 }
 // To separate type text into sepaarate paragraphs
-function elTextBreak(text) {
-  const textArr = text.split('\n');
-  const textPtagged = textArr.join('</p><p>');
-  const temp = '<p>'.concat('', textPtagged).concat('', '</p>');
-  return temp;
-}
-
 function elTextBreakForEach(parent, text) {
   const textArr = text.split('\n');
+  console.log(textArr);
   textArr.forEach((elem) => {
     const elTag = document.createElement('p');
     elTag.appendChild(document.createTextNode(elem));
     parent.appendChild(elTag);
-  })
-  const textPtagged = textArr.join('</p><p>');
-  const temp = '<p>'.concat('', textPtagged).concat('', '</p>');
-  return temp;
+  });
 }
 
 // To separate type text into sepaarate paragraphs
-function elLI(items) {
-  const textPtagged = items.join('</li"><li class = "li">');
-  const temp = '<li class = "li">'.concat('', textPtagged).concat('', '</li>');
-  return temp;
-}
-
 function elLIForEach(parent, text) {
-  // console.log(text);
   text.forEach((elem) => {
+    console.log(elem);
     const elTag = document.createElement('li');
+    elTag.classList.add('li');
     elTag.appendChild(document.createTextNode(elem));
     parent.appendChild(elTag);
-  })
-  const textLItagged = textArr.join('</li><li>');
-  const temp = '<li>'.concat('', textLItagged).concat('', '</li>');
-  return temp;
+  });
 }
 
 export function elImg(parent, figure, src, caption, classname) {
   const element = document.createElement(figure);
   const img = document.createElement('img');
+  img.setAttribute('class', 'image');
   img.setAttribute('src', src);
   const figcaption = document.createElement('figcaption');
   figcaption.appendChild(document.createTextNode(caption));
@@ -83,7 +67,7 @@ function appLecMaterial(div, element, data, classname, attrib) {
     } else if (element === 'p') {
       elTextBreakForEach(htmlEl, data);
     } else if (element === 'ul') {
-      htmlEl.innerHTML = elLIForEach(htmlEl, data);
+      elLIForEach(htmlEl, data);
     } else {
       htmlEl.appendChild(document.createTextNode(data));
     }
@@ -154,6 +138,7 @@ export function readButton(button) {
 
 
 export function renderCard(lectures) {
+ 
   const div1 = document.querySelector('.list');
   // Creating elements for the card
   const newDiv1 = el(div1, 'div', '');
@@ -183,7 +168,6 @@ export function renderCard(lectures) {
 }
 
 export function rendLecture(lecture) {
-
 
   // Set background image
   const headerimg = document.querySelector('.header__img');
@@ -229,21 +213,19 @@ export function rendLecture(lecture) {
 export function finishLec() {
   const finishButton = document.getElementById('finish');
   const local = window.location.href.split('=')[1];
-  const LOCALSTORAGE_KEY = JSON.stringify(local);
-  console.log('value is = > ' + local);
 
   //ath if in localValue inniheldur local, ef ekki fjarlægja úr lista.
   if (finishButton.classList.contains('button-active')) {
     finishButton.className = 'lecture__button';
     finishButton.textContent = "Klára fyrirlestur";
-    localStorage.removeItem(LOCALSTORAGE_KEY);
-  } else {
-    console.log('key is = > ' + LOCALSTORAGE_KEY);
-    const checked = load(LOCALSTORAGE_KEY);
-    console.log(checked);
+    localStorage.removeItem(local);
+    // clear(local);
+  }
+
+  else {
     finishButton.classList.add('button-active');
     finishButton.textContent = "✓ Klára fyrirlestur";
-    localStorage.setItem(LOCALSTORAGE_KEY, LOCALSTORAGE_KEY);
+    localStorage.setItem(local, local);
   }
 
 }
@@ -252,19 +234,7 @@ export function goBack() {
   window.history.back();
 }
 
-export function save(key, value) {
-  const checked = load();
-  checked.push({ key, value });
-  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(checked));
-}
-export function load(key) {
-  const keyJson = localStorage.getItem(key);
-  debugger;
-  const checked = JSON.parse(keyJson) || [];
-  return checked;
-}
 
- export function clear(e) {
-
- localStorage.removeItem(e);
-}
+// export function clear(e) {
+//   localStorage.removeItem(e);
+// }
