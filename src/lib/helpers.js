@@ -1,3 +1,5 @@
+import { load } from "./storage";
+
 export function empty(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
@@ -216,36 +218,21 @@ export function rendLecture(lecture) {
 
 export function finishLec() {
   const finishButton = document.getElementById('finish');
-  const LOCALSTORAGE_KEY = 'finishbutton';
   const local = window.location.href.split('=')[1];
-  console.log(local);
 
-  const wutt = localStorage.getItem(LOCALSTORAGE_KEY);
-  const localValue= JSON.stringify(wutt) || [];
-  
   //ath if in localValue inniheldur local, ef ekki fjarlægja úr lista.
-  localValue.push(local);
-  console.log(localValue);
-
     if (finishButton.classList.contains('button-active')) {
       finishButton.className = 'lecture__button';
       finishButton.textContent = "Klára fyrirlestur";
-     clear(LOCALSTORAGE_KEY);
+      clear(local);
     } 
 
     else {
       finishButton.classList.add('button-active');
-<<<<<<< HEAD
       finishButton.textContent = "✓ Klára fyrirlestur";
-      localStorage.setItem(LOCALSTORAGE_KEY, local);
-    //  save(LOCALSTORAGE_KEY, window.location.href.split('=')[1]);
-=======
-      finishButton.textContent = "✓ Fyrirlestur kláraður";
-      localStorage.setItem('finishbutton', window.location.href.split('=')[1]);
->>>>>>> a28c1bb44f0b50c73ea397b05c1b65a98f88878a
-      
+      localStorage.setItem(local, local);
     }
-    console.log(LOCALSTORAGE_KEY)
+
 }
 
 export function goBack () {
@@ -257,18 +244,3 @@ export function clear(e) {
 
  localStorage.removeItem(e);
 }
-/*
-export function save(key, value) {
-  const scores = LOCALSTORAGE_KEY;
-
-  scores.push({ key, value });
-  localStorage.setItem('finishbutton', JSON.stringify(scores));
-}
-
-export function load() {
-  const keyJson = localStorage.getItem(LOCALSTORAGE_KEY);
-  const scores = JSON.parse(scoresJson) || [];
-
-  return scores.sort((a, b) => b.points - a.points);
-}
-*/
