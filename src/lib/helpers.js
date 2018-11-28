@@ -20,6 +20,19 @@ function elTextBreak(text) {
   return temp;
 }
 
+function elTextBreakForEach(parent, text) {
+  const textArr = text.split('\n');
+  console.log(textArr);
+  textArr.forEach((elem) => {
+    const elTag = document.createElement('p');
+    elTag.appendChild(document.createTextNode(elem));
+    parent.appendChild(elTag);
+  })
+  const textPtagged = textArr.join('</p><p>');
+  const temp = '<p>'.concat('', textPtagged).concat('', '</p>');
+  return temp;
+}
+
 // To separate type text into sepaarate paragraphs
 function elLI(items) {
   const textPtagged = items.join('</li"><li class = "li">');
@@ -55,7 +68,8 @@ function appLecMaterial(div, element, data, classname, attrib) {
     if (element === 'img' || element === 'iframe') {
       htmlEl.setAttribute('src', data);
     } else if (element === 'p') {
-      htmlEl.innerHTML = elTextBreak(data);
+      // htmlEl.innerHTML = elTextBreak(data);
+      elTextBreakForEach(htmlEl, data);
     } else if (element === 'ul') {
       htmlEl.innerHTML = elLI(data);
     } else {
