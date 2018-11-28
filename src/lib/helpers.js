@@ -1,4 +1,4 @@
-import { load, save, clear } from './storage';
+// import { load, save, clear } from './storage';
 
 export function empty(element) {
   while (element.firstChild) {
@@ -24,7 +24,6 @@ function elTextBreak(text) {
 
 function elTextBreakForEach(parent, text) {
   const textArr = text.split('\n');
-  console.log(textArr);
   textArr.forEach((elem) => {
     const elTag = document.createElement('p');
     elTag.appendChild(document.createTextNode(elem));
@@ -45,7 +44,6 @@ function elLI(items) {
 function elLIForEach(parent, text) {
   // console.log(text);
   text.forEach((elem) => {
-    console.log(elem);
     const elTag = document.createElement('li');
     elTag.appendChild(document.createTextNode(elem));
     parent.appendChild(elTag);
@@ -231,19 +229,22 @@ export function rendLecture(lecture) {
 export function finishLec() {
   const finishButton = document.getElementById('finish');
   const local = window.location.href.split('=')[1];
+  const LOCALSTORAGE_KEY = JSON.stringify(local);
+  console.log('value is = > ' + local);
 
   //ath if in localValue inniheldur local, ef ekki fjarlægja úr lista.
-    if (finishButton.classList.contains('button-active')) {
-      finishButton.className = 'lecture__button';
-      finishButton.textContent = "Klára fyrirlestur";
-      clear(local);
-    } 
-
-    else {
-      finishButton.classList.add('button-active');
-      finishButton.textContent = "✓ Klára fyrirlestur";
-      localStorage.setItem(local, local);
-    }
+  if (finishButton.classList.contains('button-active')) {
+    finishButton.className = 'lecture__button';
+    finishButton.textContent = "Klára fyrirlestur";
+    localStorage.removeItem(LOCALSTORAGE_KEY);
+  } else {
+    console.log('key is = > ' + LOCALSTORAGE_KEY);
+    const checked = load(LOCALSTORAGE_KEY);
+    console.log(checked);
+    finishButton.classList.add('button-active');
+    finishButton.textContent = "✓ Klára fyrirlestur";
+    localStorage.setItem(LOCALSTORAGE_KEY, LOCALSTORAGE_KEY);
+  }
 
 }
 
@@ -251,6 +252,17 @@ export function goBack() {
   window.history.back();
 }
 
+export function save(key, value) {
+  const checked = load();
+  checked.push({ key, value });
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(checked));
+}
+export function load(key) {
+  const keyJson = localStorage.getItem(key);
+  debugger;
+  const checked = JSON.parse(keyJson) || [];
+  return checked;
+}
 
  export function clear(e) {
 
