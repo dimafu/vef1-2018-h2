@@ -20,6 +20,26 @@ function elTextBreak(text) {
   return temp;
 }
 
+function elTextBreakForEach(parent, text) {
+  const textArr = text.split('\n');
+  console.log(textArr);
+  textArr.forEach((elem) => {
+    const elTag = document.createElement('p');
+    elTag.appendChild(document.createTextNode(elem));
+    parent.appendChild(elTag);
+  })
+  const textPtagged = textArr.join('</p><p>');
+  const temp = '<p>'.concat('', textPtagged).concat('', '</p>');
+  return temp;
+}
+
+// To separate type text into sepaarate paragraphs
+function elLI(items) {
+  const textPtagged = items.join('</li"><li class = "li">');
+  const temp = '<li class = "li">'.concat('', textPtagged).concat('', '</li>');
+  return temp;
+}
+
 export function elImg(parent, figure, src, caption, classname) {
   const element = document.createElement(figure);
   const img = document.createElement('img');
@@ -48,16 +68,18 @@ function appLecMaterial(div, element, data, classname, attrib) {
     if (element === 'img' || element === 'iframe') {
       htmlEl.setAttribute('src', data);
     } else if (element === 'p') {
-      htmlEl.innerHTML = elTextBreak(data);
+      // htmlEl.innerHTML = elTextBreak(data);
+      elTextBreakForEach(htmlEl, data);
+    } else if (element === 'ul') {
+      htmlEl.innerHTML = elLI(data);
     } else {
       htmlEl.appendChild(document.createTextNode(data));
     }
     subdiv.appendChild(htmlEl);
     div.appendChild(subdiv);
     if (element === 'blockquote') {
-      appLecMaterial(subdiv, 'cite', attrib, classname);
+      el(subdiv, 'cite', attrib, classname);
     }
-    // return subdiv;
   }
   return subdiv;
 }
