@@ -159,11 +159,13 @@ export function renderCard(lectures) {
 
   const newDiv3 = el(newLink, 'div', '', 'listItem__bottom');
 
+  el(newDiv3, 'span', lectures.category, 'listItem__category');
+
   const newDiv4 = el(newDiv3, 'div', '', 'listItem__text');
 
-  el(newDiv4, 'span', lectures.category, 'listItem__category');
-
   el(newDiv4, 'h2', lectures.title, 'listItem__title');
+
+  el(newDiv4, 'h3', '✓', 'listItem__finished');
 
   return lectures;
 }
@@ -233,9 +235,14 @@ export function finishLec() {
 
     else {
       finishButton.classList.add('button-active');
+<<<<<<< HEAD
       finishButton.textContent = "✓ Klára fyrirlestur";
       localStorage.setItem(LOCALSTORAGE_KEY, local);
     //  save(LOCALSTORAGE_KEY, window.location.href.split('=')[1]);
+=======
+      finishButton.textContent = "✓ Fyrirlestur kláraður";
+      localStorage.setItem('finishbutton', window.location.href.split('=')[1]);
+>>>>>>> a28c1bb44f0b50c73ea397b05c1b65a98f88878a
       
     }
     console.log(LOCALSTORAGE_KEY)

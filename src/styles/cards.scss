@@ -54,15 +54,32 @@
       }
     }
   }
+
+  .listItem__category {
+    font-family: $font-family-heading;
+    span {
+      font-size: 16px;
+    }
+  }
   
   .listItem__text {
     font-family: $font-family-heading;
+    display: flex;
+    justify-content: space-between;
   
     h2 {
       font-size: 32px;
       word-wrap: break-word;
     }
-    span {
-      font-size: 16px;
+
+    h3 {
+      font-size: 32px;
+      word-wrap: break-word;
+      color: color(cButAct);
+      padding-right: 10px;
     }
+    .listItem__finished {
+      opacity: 0;
+    }
+
   }
