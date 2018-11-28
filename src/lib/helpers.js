@@ -241,7 +241,6 @@ export function save(key, value) {
 }
 export function load(key) {
   const keyJson = localStorage.getItem(key);
-  debugger;
   const checked = JSON.parse(keyJson) || [];
   return checked;
 }
