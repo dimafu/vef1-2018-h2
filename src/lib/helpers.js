@@ -161,11 +161,13 @@ export function renderCard(lectures) {
 
   const newDiv3 = el(newLink, 'div', '', 'listItem__bottom');
 
+  el(newDiv3, 'span', lectures.category, 'listItem__category');
+
   const newDiv4 = el(newDiv3, 'div', '', 'listItem__text');
 
-  el(newDiv4, 'span', lectures.category, 'listItem__category');
-
   el(newDiv4, 'h2', lectures.title, 'listItem__title');
+
+  el(newDiv4, 'h3', '✓', 'listItem__finished');
 
   return lectures;
 }
@@ -217,20 +219,20 @@ export function rendLecture(lecture) {
 export function finishLec() {
   const finishButton = document.getElementById('finish');
 
-  if (finishButton.classList.contains('button-active')) {
-    finishButton.className = 'lecture__button';
-    finishButton.textContent = "Klára fyrirlestur";
-    clear('finishbutton');
-  }
-
-  else {
-    finishButton.classList.add('button-active');
-    finishButton.textContent = "✓ Klára fyrirlestur";
-    localStorage.setItem('finishbutton', window.location.href.split('=')[1]);
-
-  }
-  const pressedBefore = localStorage.getItem('finishbutton');
-  console.log(pressedBefore)
+    if (finishButton.classList.contains('button-active')) {
+      finishButton.className = 'lecture__button';
+      finishButton.textContent = "Klára fyrirlestur";
+     clear('finishbutton');
+    } 
+    
+    else {
+      finishButton.classList.add('button-active');
+      finishButton.textContent = "✓ Fyrirlestur kláraður";
+      localStorage.setItem('finishbutton', window.location.href.split('=')[1]);
+      
+    }
+    const pressedBefore =  localStorage.getItem('finishbutton');
+    console.log(pressedBefore)
 }
 
 export function goBack() {
