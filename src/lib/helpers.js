@@ -1,3 +1,5 @@
+import { load, save, clear } from './storage';
+
 export function empty(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
@@ -169,7 +171,7 @@ export function renderCard(lectures) {
 }
 
 export function rendLecture(lecture) {
-  
+
 
   // Set background image
   const headerimg = document.querySelector('.header__img');
@@ -215,28 +217,28 @@ export function rendLecture(lecture) {
 export function finishLec() {
   const finishButton = document.getElementById('finish');
 
-    if (finishButton.classList.contains('button-active')) {
-      finishButton.className = 'lecture__button';
-      finishButton.textContent = "Klára fyrirlestur";
-     clear('finishbutton');
-    } 
-    
-    else {
-      finishButton.classList.add('button-active');
-      finishButton.textContent = "✓ Klára fyrirlestur";
-      localStorage.setItem('finishbutton', window.location.href.split('=')[1]);
-      
-    }
-    const pressedBefore =  localStorage.getItem('finishbutton');
-    console.log(pressedBefore)
+  if (finishButton.classList.contains('button-active')) {
+    finishButton.className = 'lecture__button';
+    finishButton.textContent = "Klára fyrirlestur";
+    clear('finishbutton');
+  }
+
+  else {
+    finishButton.classList.add('button-active');
+    finishButton.textContent = "✓ Klára fyrirlestur";
+    localStorage.setItem('finishbutton', window.location.href.split('=')[1]);
+
+  }
+  const pressedBefore = localStorage.getItem('finishbutton');
+  console.log(pressedBefore)
 }
 
-export function goBack () {
+export function goBack() {
   window.history.back();
 }
 
 export function clear(e) {
 
- localStorage.removeItem(e);
+  localStorage.removeItem(e);
 
 }

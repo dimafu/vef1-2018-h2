@@ -17,7 +17,6 @@ export default class Lecture {
       });
   }
 
-
   renderLectures(data) {
     const index = data.map((d) => { return d.slug; }).indexOf(window.location.href.split('=')[1]);
     const lecture = data[index];
