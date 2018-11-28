@@ -1,5 +1,3 @@
-import { load, save, clear } from './storage';
-
 export function empty(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
@@ -17,7 +15,6 @@ export function el(parent, child, textnode, classname) {
 // To separate type text into sepaarate paragraphs
 function elTextBreakForEach(parent, text) {
   const textArr = text.split('\n');
-  console.log(textArr);
   textArr.forEach((elem) => {
     const elTag = document.createElement('p');
     elTag.appendChild(document.createTextNode(elem));
@@ -28,7 +25,6 @@ function elTextBreakForEach(parent, text) {
 // To separate type text into sepaarate paragraphs
 function elLIForEach(parent, text) {
   text.forEach((elem) => {
-    console.log(elem);
     const elTag = document.createElement('li');
     elTag.classList.add('li');
     elTag.appendChild(document.createTextNode(elem));
@@ -138,7 +134,7 @@ export function readButton(button) {
 
 
 export function renderCard(lectures) {
- 
+
   const div1 = document.querySelector('.list');
   // Creating elements for the card
   const newDiv1 = el(div1, 'div', '');
@@ -162,7 +158,9 @@ export function renderCard(lectures) {
 
   el(newDiv4, 'h2', lectures.title, 'listItem__title');
 
-  el(newDiv4, 'h3', '✓', 'listItem__finished');
+  if (!(localStorage.getItem(lectures.slug) === null)) {
+    el(newDiv4, 'h3', '✓', 'listItem__finished');
+  }
 
   return lectures;
 }
@@ -179,19 +177,15 @@ export function rendLecture(lecture) {
 
   const div1 = document.querySelector('.lecture');
   const finishButton = document.getElementById('finish');
- 
- // see if lecture is checked finished
-  let a= window.location.href.split('=')[1];
-  
-  for (let i=0; i<localStorage.length; i++) {
 
-    if (localStorage.key(i) === a) {
-        finishButton.classList.add('button-active');
-        finishButton.textContent = "✓ Klára fyrirlestur";
-    }
+  // see if lecture is checked finished
+  const a = window.location.href.split('=')[1];
+
+  if (!(localStorage.getItem(a) === null)) {
+    finishButton.classList.add('button-active');
+    finishButton.textContent = '✓ Klára fyrirlestur';
   }
-  
-  console.log(lecture);
+
   // create elements accodring to a type of data
   lecture.content.forEach((elem) => {
     if (elem.type === 'youtube') {
@@ -231,13 +225,11 @@ export function finishLec() {
     finishButton.className = 'lecture__button';
     finishButton.textContent = "Klára fyrirlestur";
     localStorage.removeItem(local);
-    // clear(local);
-  }
-
-  else {
+  } else {
     finishButton.classList.add('button-active');
     finishButton.textContent = "✓ Klára fyrirlestur";
     localStorage.setItem(local, local);
+    console.log(localStorage);
   }
 
 }
@@ -245,8 +237,3 @@ export function finishLec() {
 export function goBack() {
   window.history.back();
 }
-
-
-// export function clear(e) {
-//   localStorage.removeItem(e);
-// }

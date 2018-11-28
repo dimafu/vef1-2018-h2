@@ -27,7 +27,6 @@ export default class List {
 
 
   renderLectures(data) {
-    console.log(data);
     // Set front page header background image
     const headerimg = document.querySelector('.header__img');
     headerimg.style.backgroundImage = "url('/img/header.jpg')";
