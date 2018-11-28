@@ -214,29 +214,54 @@ export function rendLecture(lecture) {
 
 export function finishLec() {
   const finishButton = document.getElementById('finish');
+  const LOCALSTORAGE_KEY = 'finishbutton';
+  const local = window.location.href.split('=')[1];
+  console.log(local);
+
+  const wutt = localStorage.getItem(LOCALSTORAGE_KEY);
+  const localValue= JSON.stringify(wutt) || [];
+  
+  //ath if in localValue inniheldur local, ef ekki fjarlægja úr lista.
+  localValue.push(local);
+  console.log(localValue);
 
     if (finishButton.classList.contains('button-active')) {
       finishButton.className = 'lecture__button';
       finishButton.textContent = "Klára fyrirlestur";
-     clear('finishbutton');
+     clear(LOCALSTORAGE_KEY);
     } 
-    
+
     else {
       finishButton.classList.add('button-active');
       finishButton.textContent = "✓ Klára fyrirlestur";
-      localStorage.setItem('finishbutton', window.location.href.split('=')[1]);
+      localStorage.setItem(LOCALSTORAGE_KEY, local);
+    //  save(LOCALSTORAGE_KEY, window.location.href.split('=')[1]);
       
     }
-    const pressedBefore =  localStorage.getItem('finishbutton');
-    console.log(pressedBefore)
+    console.log(LOCALSTORAGE_KEY)
 }
 
 export function goBack () {
   window.history.back();
 }
 
+
 export function clear(e) {
 
  localStorage.removeItem(e);
-
 }
+/*
+export function save(key, value) {
+  const scores = LOCALSTORAGE_KEY;
+
+  scores.push({ key, value });
+  localStorage.setItem('finishbutton', JSON.stringify(scores));
+}
+
+export function load() {
+  const keyJson = localStorage.getItem(LOCALSTORAGE_KEY);
+  const scores = JSON.parse(scoresJson) || [];
+
+  return scores.sort((a, b) => b.points - a.points);
+}
+*/
