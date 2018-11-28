@@ -152,7 +152,7 @@ export function renderCard(lectures) {
 
   const newDiv3 = el(newLink, 'div', '', 'listItem__bottom');
 
-  el(newDiv3, 'span', lectures.category, 'listItem__category');
+  el(newDiv3, 'span', lectures.category.toUpperCase(), 'listItem__category');
 
   const newDiv4 = el(newDiv3, 'div', '', 'listItem__text');
 

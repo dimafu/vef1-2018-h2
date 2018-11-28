@@ -48,6 +48,11 @@
       &__image {
         height: 100%;
       }
+
+      &__bottom {
+        margin-left: 10px;
+        margin-bottom: 10px;
+      }
   
       &:hover {
         background-color: color(cButHov);

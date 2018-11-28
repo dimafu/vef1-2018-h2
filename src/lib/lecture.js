@@ -1,5 +1,4 @@
 import { /* improtar el líka úr helpes */ rendLecture } from './helpers';
-import { save } from './storage';
 
 export default class Lecture {
   constructor() {
