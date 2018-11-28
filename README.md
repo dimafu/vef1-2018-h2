@@ -36,7 +36,7 @@ DONE. For each lecture should display header and all the lecture material that c
 
 **TO DO.** Lecture material is stored in an array and should display it in the same order as it is defined. Appearance for each unit should be prepared according to the outlook.
 
-**TO DO.** At the bottom is a button to mark a lecture that is finished and link to go back.
+DONE. At the bottom is a button to mark a lecture that is finished and link to go back.
 
 ### Kláraður fyrirlestur
 
@@ -67,7 +67,7 @@ where `type` can be:
 * DONE. `quote`, `data` contains citation, additionaly can be `attribute` with what it is referenced to
 * DONE. `image`, `data` contains path to image, additionally can be `caption` with text and image
 * DONE. `heading`, `data` contains headings
-* `list`, `data` contains array of text in a list
+* DONE. `list`, `data` contains array of text in a list
 * DONE. `code`, `data` contains code where interval and new lines matter
 
 INFO. Note that more material can add with what is given in the beginning. The functionality should dominate regardless of whatever material in whatever form is, as long as it follows the rules above.
