@@ -42,6 +42,19 @@ function elLI(items) {
   return temp;
 }
 
+function elLIForEach(parent, text) {
+  // console.log(text);
+  text.forEach((elem) => {
+    console.log(elem);
+    const elTag = document.createElement('li');
+    elTag.appendChild(document.createTextNode(elem));
+    parent.appendChild(elTag);
+  })
+  const textLItagged = textArr.join('</li><li>');
+  const temp = '<li>'.concat('', textLItagged).concat('', '</li>');
+  return temp;
+}
+
 export function elImg(parent, figure, src, caption, classname) {
   const element = document.createElement(figure);
   const img = document.createElement('img');
@@ -70,10 +83,9 @@ function appLecMaterial(div, element, data, classname, attrib) {
     if (element === 'img' || element === 'iframe') {
       htmlEl.setAttribute('src', data);
     } else if (element === 'p') {
-      // htmlEl.innerHTML = elTextBreak(data);
       elTextBreakForEach(htmlEl, data);
     } else if (element === 'ul') {
-      htmlEl.innerHTML = elLI(data);
+      htmlEl.innerHTML = elLIForEach(htmlEl, data);
     } else {
       htmlEl.appendChild(document.createTextNode(data));
     }
@@ -249,10 +261,10 @@ export function goBack() {
 }
 
 
-export function clear(e) {
+// export function clear(e) {
 
- localStorage.removeItem(e);
-}
+//  localStorage.removeItem(e);
+// }
 /*
 export function save(key, value) {
   const scores = LOCALSTORAGE_KEY;
