@@ -195,3 +195,21 @@ export function rendLecture(lecture) {
 
   return lecture;
 }
+
+export function finishLec() {
+  const finishButton = document.getElementById('finish');
+
+    if (finishButton.classList.contains('button-active')) {
+      finishButton.className = 'lecture__button';
+      finishButton.textContent = "Klára fyrirlestur";
+    } else {
+      finishButton.classList.add('button-active');
+      finishButton.textContent = "✓ Klára fyrirlestur";
+    }
+
+}
+
+export function goBack () {
+  window.history.back();
+
+}
