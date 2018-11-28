@@ -147,6 +147,8 @@ export function renderCard(lectures) {
 }
 
 export function rendLecture(lecture) {
+  
+
   // Set background image
   const headerimg = document.querySelector('.header__img');
   headerimg.style.backgroundImage = `url(${lecture.image})`;
@@ -194,14 +196,25 @@ export function finishLec() {
     if (finishButton.classList.contains('button-active')) {
       finishButton.className = 'lecture__button';
       finishButton.textContent = "Klára fyrirlestur";
-    } else {
+     clear('finishbutton');
+    } 
+    
+    else {
       finishButton.classList.add('button-active');
       finishButton.textContent = "✓ Klára fyrirlestur";
+      localStorage.setItem('finishbutton', window.location.href.split('=')[1]);
+      
     }
-
+    const pressedBefore =  localStorage.getItem('finishbutton');
+    console.log(pressedBefore)
 }
 
 export function goBack () {
   window.history.back();
+}
+
+export function clear(e) {
+
+ localStorage.removeItem(e);
 
 }
