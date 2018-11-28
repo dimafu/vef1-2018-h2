@@ -39,9 +39,6 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: scroll; // alltaf hafa y skrollbar
-
-  font-family: $font-family-body;
-  font-size: $baseFontSize;
 }
 
 main {
@@ -49,6 +46,9 @@ main {
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
+
+  font-family: $font-family-body;
+  font-size: $baseFontSize;
 }
 @media (min-width: 1200px) {
   main {
