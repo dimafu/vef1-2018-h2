@@ -15,13 +15,6 @@ export function el(parent, child, textnode, classname) {
   return element;
 }
 // To separate type text into sepaarate paragraphs
-function elTextBreak(text) {
-  const textArr = text.split('\n');
-  const textPtagged = textArr.join('</p><p>');
-  const temp = '<p>'.concat('', textPtagged).concat('', '</p>');
-  return temp;
-}
-
 function elTextBreakForEach(parent, text) {
   const textArr = text.split('\n');
   console.log(textArr);
@@ -29,22 +22,24 @@ function elTextBreakForEach(parent, text) {
     const elTag = document.createElement('p');
     elTag.appendChild(document.createTextNode(elem));
     parent.appendChild(elTag);
-  })
-  const textPtagged = textArr.join('</p><p>');
-  const temp = '<p>'.concat('', textPtagged).concat('', '</p>');
-  return temp;
+  });
 }
 
 // To separate type text into sepaarate paragraphs
-function elLI(items) {
-  const textPtagged = items.join('</li"><li class = "li">');
-  const temp = '<li class = "li">'.concat('', textPtagged).concat('', '</li>');
-  return temp;
+function elLIForEach(parent, text) {
+  text.forEach((elem) => {
+    console.log(elem);
+    const elTag = document.createElement('li');
+    elTag.classList.add('li');
+    elTag.appendChild(document.createTextNode(elem));
+    parent.appendChild(elTag);
+  });
 }
 
 export function elImg(parent, figure, src, caption, classname) {
   const element = document.createElement(figure);
   const img = document.createElement('img');
+  img.setAttribute('class', 'image');
   img.setAttribute('src', src);
   const figcaption = document.createElement('figcaption');
   figcaption.appendChild(document.createTextNode(caption));
@@ -70,10 +65,9 @@ function appLecMaterial(div, element, data, classname, attrib) {
     if (element === 'img' || element === 'iframe') {
       htmlEl.setAttribute('src', data);
     } else if (element === 'p') {
-      // htmlEl.innerHTML = elTextBreak(data);
       elTextBreakForEach(htmlEl, data);
     } else if (element === 'ul') {
-      htmlEl.innerHTML = elLI(data);
+      elLIForEach(htmlEl, data);
     } else {
       htmlEl.appendChild(document.createTextNode(data));
     }
@@ -221,17 +215,17 @@ export function finishLec() {
   const local = window.location.href.split('=')[1];
 
   //ath if in localValue inniheldur local, ef ekki fjarlægja úr lista.
-    if (finishButton.classList.contains('button-active')) {
-      finishButton.className = 'lecture__button';
-      finishButton.textContent = "Klára fyrirlestur";
-      clear(local);
-    } 
+  if (finishButton.classList.contains('button-active')) {
+    finishButton.className = 'lecture__button';
+    finishButton.textContent = "Klára fyrirlestur";
+    clear(local);
+  }
 
-    else {
-      finishButton.classList.add('button-active');
-      finishButton.textContent = "✓ Klára fyrirlestur";
-      localStorage.setItem(local, local);
-    }
+  else {
+    finishButton.classList.add('button-active');
+    finishButton.textContent = "✓ Klára fyrirlestur";
+    localStorage.setItem(local, local);
+  }
 
 }
 
@@ -240,7 +234,6 @@ export function goBack() {
 }
 
 
-export function clear(e) {
-
- localStorage.removeItem(e);
-}
+// export function clear(e) {
+//   localStorage.removeItem(e);
+// }
