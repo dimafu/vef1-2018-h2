@@ -14,19 +14,18 @@ const LOCALSTORAGE_KEY = 'assess_status';
 export function load() {
   const statusJson = localStorage.getItem(LOCALSTORAGE_KEY);
   const status = JSON.parse(statusJson) || [];
-  console.log(status);
+//   console.log(status);
 }
 
 /**
  * Vista status
  *
  * @param {string} slug Nafn þess sem á að vista
- * @param {boolean} finished status sem á að vista
  */
-export function save(slug, finished) {
+export function save(slug) {
   const status = load();
 
-  status.push({ slug, finished });
+  status.push({ slug });
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(status));
 }
 

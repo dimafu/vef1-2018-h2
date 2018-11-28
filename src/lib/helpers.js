@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { load } from "./storage";
+=======
+import { load, save, clear } from './storage';
+>>>>>>> 321481265b4e09238dd96df8361cd7c9d6d76916
 
 export function empty(element) {
   while (element.firstChild) {
@@ -173,7 +177,7 @@ export function renderCard(lectures) {
 }
 
 export function rendLecture(lecture) {
-  
+
 
   // Set background image
   const headerimg = document.querySelector('.header__img');
@@ -235,7 +239,7 @@ export function finishLec() {
 
 }
 
-export function goBack () {
+export function goBack() {
   window.history.back();
 }
 
