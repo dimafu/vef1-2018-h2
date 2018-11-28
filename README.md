@@ -1,14 +1,14 @@
 # Hópverkefni 2
 
-The project consists of crafting the prototype of the lecture web for the web development course. Given the data which is covering the winter study material.
+INFO. The project consists of crafting the prototype of the lecture web for the web development course. Given the data which is covering the winter study material.
 
-Given are [examples](utlit/) in `500px` and `1500px` without the grid along with `1500px` with grid. All the material should scale neatly in between.
+INFO. Given are [examples](utlit/) in `500px` and `1500px` without the grid along with `1500px` with grid. All the material should scale neatly in between.
 
 ## Almennt
 
 INFO. The data is given in `lectures.json` which should be picked up with _ajax_. The project is ran with `browser-sync` to make it work.
 
-Page material should not be wider than `1200px`. Colors and images in the header shall fill up all the horizontal space. Over the images is 60% opaque white color. Images for each lecture are defined in `json` file.
+**TO DO** Page material should not be wider than `1200px`. Colors and images in the header shall fill up all the horizontal space. Over the images is 60% opaque white color. Images for each lecture are defined in `json` file.
 
 DONE. Base font size is 16px and all other fonts adopt the following scaling: `16 24 32 48`.
 
@@ -24,7 +24,7 @@ DONE. All animation is done in `300ms` with `ease-in-out` acceleration function.
 
 ## Forsíða
 
-Front page contains the list of all lectures. It becomes indicated whether it is finished or not. Checkmark `✓` should be used to indicate that the lecture is finished, See below how it functions.
+**TO DO** Front page contains the list of all lectures. It becomes indicated whether it is finished or not. Checkmark `✓` should be used to indicate that the lecture is finished, See below how it functions.
 
 DONE. Three buttons, one for each group should be above the list: `HTML`, `CSS` og `JavaScript`. In the beginning none of the buttons are active and when the button is activated lectures in the active group should only be displayed and the button should be colored with `#2d2`. If more buttons are activated should also show lectures from this group. If all the buttons are activated it is the same as if all are deactivated showing all the lectures.
 
@@ -34,19 +34,19 @@ DONE. When clicked on the lecture it is redirected over to `fyrirlestur.html?slu
 
 DONE. For each lecture should display header and all the lecture material that comes after that. In the header comes group and title.
 
-Lecture material is stored in an array and should display it in the same order as it is defined. Appearance for each unit should be prepared according to the outlook.
+**TO DO** Lecture material is stored in an array and should display it in the same order as it is defined. Appearance for each unit should be prepared according to the outlook.
 
-At the bottom is a button to mark a lecture that is finished and link to go back.
+**TO DO** At the bottom is a button to mark a lecture that is finished and link to go back.
 
 ### Kláraður fyrirlestur
 
-If a lecture marked finished should show `✓ Fyrirlestur kláraður` in `#2d2`. Otherwise `Klára fyrirlestur`. When lecture is finished should save the information about it in `localStorage` and display in a list and on a lecture page.
+**TO DO** If a lecture marked finished should show `✓ Fyrirlestur kláraður` in `#2d2`. Otherwise `Klára fyrirlestur`. When lecture is finished should save the information about it in `localStorage` and display in a list and on a lecture page.
 
-`slug` should be used as an ID for finished lectures.
+**TO DO** `slug` should be used as an ID for finished lectures.
 
 ## Fyrirlestragögn
 
-`lectures.json` contains an array of lectures that should be displayed. Each lecture can have:
+DONE. `lectures.json` contains an array of lectures that should be displayed. Each lecture can have:
 
 * `slug`, used to link the lecture
 * `title`, lecture title
@@ -55,22 +55,22 @@ If a lecture marked finished should show `✓ Fyrirlestur kláraður` in `#2d2`.
 * `thumbnail`, image of a lecture overview, may skip, then should display gray color instead
 * `content`, array of lecture material
 
-For lecture material the content is always:
+INFO. For lecture material the content is always:
 
 * `type`, type of material
 * `data`, data of material
 
 where `type` can be:
 
-* `youtube`, `data` contains a link to youtube video. `Should include the video with <iframe src="<URL>" frameborder="0" allowfullscreen="0"></iframe>`.
-* `text`, `data` contains the data where `\n` marks between the paragraphs, such that a text should be displayed within `<p>`, changed over to `\n`
+* DONE. `youtube`, `data` contains a link to youtube video. Should include the video with `<iframe src="<URL>" frameborder="0" allowfullscreen="0"></iframe>`.
+* DONE. `text`, `data` contains the data where `\n` marks between the paragraphs, such that a text should be displayed within `<p>`, changed over to `\n`
 * `quote`, `data` contains citation, additionaly can be `attribute` with what it is referenced to
 * `image`, `data` contains path to image, additionally can be `caption` with text and image
-* `heading`, `data` contains headings
+* DONE. `heading`, `data` contains headings
 * `list`, `data` contains array of text in a list
-* `code`, `data` contains code where interval and new lines matter
+* DONE. `code`, `data` contains code where interval and new lines matter
 
-Note that more material can add with what is given in the beginning. The functionality should dominate regardless of whatever material in whatever form is, as long as it follows the rules above.
+INFO. Note that more material can add with what is given in the beginning. The functionality should dominate regardless of whatever material in whatever form is, as long as it follows the rules above.
 
 ## Hópavinna
 
