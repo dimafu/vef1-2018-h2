@@ -12,6 +12,28 @@ export function el(parent, child, textnode, classname) {
 
   return element;
 }
+// To separate type text into sepaarate paragraphs
+function elTextBreak(text) {
+  const textArr = text.split('\n');
+  const textPtagged = textArr.join('</p><p>');
+  const temp = '<p>'.concat('', textPtagged).concat('', '</p>');
+  return temp;
+}
+
+export function elImg(parent, figure, src, caption, classname) {
+  const element = document.createElement(figure);
+  const img = document.createElement('img');
+  img.setAttribute('src', src);
+  const figcaption = document.createElement('figcaption');
+  figcaption.appendChild(document.createTextNode(caption));
+  element.classList.add('lecelem');
+  element.classList.add(classname);
+  element.appendChild(img);
+  element.appendChild(figcaption);
+  parent.appendChild(element);
+
+  return element;
+}
 
 // Function to append the data to the lecture page
 function appLecMaterial(div, element, data, classname, attrib) {
@@ -25,6 +47,8 @@ function appLecMaterial(div, element, data, classname, attrib) {
     htmlEl.setAttribute('class', classname);
     if (element === 'img' || element === 'iframe') {
       htmlEl.setAttribute('src', data);
+    } else if (element === 'p') {
+      htmlEl.innerHTML = elTextBreak(data);
     } else {
       htmlEl.appendChild(document.createTextNode(data));
     }
@@ -137,16 +161,18 @@ export function rendLecture(lecture) {
   // create elements accodring to a type of data
   lecture.content.forEach((elem) => {
     if (elem.type === 'youtube') {
-      appLecMaterial(div1, 'iframe', elem.data, elem.type);
+      const iframe = appLecMaterial(div1, 'iframe', elem.data, elem.type);
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allowfullscreen', '0');
     }
     if (elem.type === 'text') {
-      appLecMaterial(div1, 'div', elem.data, elem.type);
+      appLecMaterial(div1, 'p', elem.data, elem.type);
     }
     if (elem.type === 'quote') {
       appLecMaterial(div1, 'blockquote', elem.data, elem.type, elem.attribute);
     }
     if (elem.type === 'image') {
-      appLecMaterial(div1, 'img', elem.data, elem.type);
+      elImg(div1, 'figure', elem.data, elem.caption, elem.type);
     }
     if (elem.type === 'heading') {
       appLecMaterial(div1, 'h1', elem.data, elem.type);

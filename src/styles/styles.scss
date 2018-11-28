@@ -41,7 +41,7 @@ html {
   overflow-y: scroll; // alltaf hafa y skrollbar
 
   font-family: $font-family-body;
-  font-size: 24px;
+  font-size: $baseFontSize;
 }
 
 main {
