@@ -24,7 +24,7 @@ DONE. All animation is done in `300ms` with `ease-in-out` acceleration function.
 
 ## Forsíða
 
-**TO DO.** Front page contains the list of all lectures. It becomes indicated whether it is finished or not. Checkmark `✓` should be used to indicate that the lecture is finished, See below how it functions.
+DONE. Front page contains the list of all lectures. It becomes indicated whether it is finished or not. Checkmark `✓` should be used to indicate that the lecture is finished, See below how it functions.
 
 DONE. Three buttons, one for each group should be above the list: `HTML`, `CSS` og `JavaScript`. In the beginning none of the buttons are active and when the button is activated lectures in the active group should only be displayed and the button should be colored with `#2d2`. If more buttons are activated should also show lectures from this group. If all the buttons are activated it is the same as if all are deactivated showing all the lectures.
 
@@ -40,9 +40,9 @@ DONE. At the bottom is a button to mark a lecture that is finished and link to g
 
 ### Kláraður fyrirlestur
 
-**TO DO.** If a lecture marked finished should show `✓ Fyrirlestur kláraður` in `#2d2`. Otherwise `Klára fyrirlestur`. When lecture is finished should save the information about it in `localStorage` and display in a list and on a lecture page.
+DONE. If a lecture marked finished should show `✓ Fyrirlestur kláraður` in `#2d2`. Otherwise `Klára fyrirlestur`. When lecture is finished should save the information about it in `localStorage` and display in a list and on a lecture page.
 
-**TO DO.** `slug` should be used as an ID for finished lectures.
+DONE. `slug` should be used as an ID for finished lectures.
 
 ## Fyrirlestragögn
 
