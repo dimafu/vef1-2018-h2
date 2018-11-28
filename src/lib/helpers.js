@@ -1,4 +1,4 @@
-// import { load, save, clear } from './storage';
+import { load, save, clear } from './storage';
 
 export function empty(element) {
   while (element.firstChild) {
@@ -17,6 +17,7 @@ export function el(parent, child, textnode, classname) {
 // To separate type text into sepaarate paragraphs
 function elTextBreakForEach(parent, text) {
   const textArr = text.split('\n');
+  console.log(textArr);
   textArr.forEach((elem) => {
     const elTag = document.createElement('p');
     elTag.appendChild(document.createTextNode(elem));
@@ -27,6 +28,7 @@ function elTextBreakForEach(parent, text) {
 // To separate type text into sepaarate paragraphs
 function elLIForEach(parent, text) {
   text.forEach((elem) => {
+    console.log(elem);
     const elTag = document.createElement('li');
     elTag.classList.add('li');
     elTag.appendChild(document.createTextNode(elem));
@@ -176,7 +178,19 @@ export function rendLecture(lecture) {
   headertext.children[1].appendChild(document.createTextNode(lecture.title));
 
   const div1 = document.querySelector('.lecture');
+  const finishButton = document.getElementById('finish');
+ 
+ // see if lecture is checked finished
+  let a= window.location.href.split('=')[1];
+  
+  for (let i=0; i<localStorage.length; i++) {
 
+    if (localStorage.key(i) === a) {
+        finishButton.classList.add('button-active');
+        finishButton.textContent = "✓ Klára fyrirlestur";
+    }
+  }
+  
   console.log(lecture);
   // create elements accodring to a type of data
   lecture.content.forEach((elem) => {
@@ -211,21 +225,19 @@ export function rendLecture(lecture) {
 export function finishLec() {
   const finishButton = document.getElementById('finish');
   const local = window.location.href.split('=')[1];
-  const LOCALSTORAGE_KEY = JSON.stringify(local);
-  console.log('value is = > ' + local);
 
   //ath if in localValue inniheldur local, ef ekki fjarlægja úr lista.
   if (finishButton.classList.contains('button-active')) {
     finishButton.className = 'lecture__button';
     finishButton.textContent = "Klára fyrirlestur";
-    localStorage.removeItem(LOCALSTORAGE_KEY);
-  } else {
-    console.log('key is = > ' + LOCALSTORAGE_KEY);
-    const checked = load(LOCALSTORAGE_KEY);
-    console.log(checked);
+    localStorage.removeItem(local);
+    // clear(local);
+  }
+
+  else {
     finishButton.classList.add('button-active');
     finishButton.textContent = "✓ Klára fyrirlestur";
-    localStorage.setItem(LOCALSTORAGE_KEY, LOCALSTORAGE_KEY);
+    localStorage.setItem(local, local);
   }
 
 }
@@ -234,16 +246,6 @@ export function goBack() {
   window.history.back();
 }
 
-export function save(key, value) {
-  const checked = load();
-  checked.push({ key, value });
-  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(checked));
-}
-export function load(key) {
-  const keyJson = localStorage.getItem(key);
-  const checked = JSON.parse(keyJson) || [];
-  return checked;
-}
 
 // export function clear(e) {
 //   localStorage.removeItem(e);
