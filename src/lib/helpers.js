@@ -193,9 +193,10 @@ export function finishLec() {
 
     if (finishButton.classList.contains('button-active')) {
       finishButton.className = 'lecture__button';
+      finishButton.textContent = "Klára fyrirlestur";
     } else {
       finishButton.classList.add('button-active');
-     // finishButton.appendChild(document.createTextNode(' \&#10004;'));
+      finishButton.textContent = "✓ Klára fyrirlestur";
     }
 
 }
