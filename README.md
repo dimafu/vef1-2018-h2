@@ -64,7 +64,7 @@ where `type` can be:
 
 * DONE. `youtube`, `data` contains a link to youtube video. Should include the video with `<iframe src="<URL>" frameborder="0" allowfullscreen="0"></iframe>`.
 * DONE. `text`, `data` contains the data where `\n` marks between the paragraphs, such that a text should be displayed within `<p>`, changed over to `\n`
-* `quote`, `data` contains citation, additionaly can be `attribute` with what it is referenced to
+* DONE. `quote`, `data` contains citation, additionaly can be `attribute` with what it is referenced to
 * DONE. `image`, `data` contains path to image, additionally can be `caption` with text and image
 * DONE. `heading`, `data` contains headings
 * `list`, `data` contains array of text in a list
