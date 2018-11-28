@@ -230,30 +230,21 @@ export function rendLecture(lecture) {
 
 export function finishLec() {
   const finishButton = document.getElementById('finish');
-  const LOCALSTORAGE_KEY = 'finishbutton';
   const local = window.location.href.split('=')[1];
-  console.log(local);
 
-  const wutt = localStorage.getItem(LOCALSTORAGE_KEY);
-  const localValue= JSON.stringify(wutt) || [];
-  
   //ath if in localValue inniheldur local, ef ekki fjarlægja úr lista.
-  localValue.push(local);
-  console.log(localValue);
-
     if (finishButton.classList.contains('button-active')) {
       finishButton.className = 'lecture__button';
       finishButton.textContent = "Klára fyrirlestur";
-     clear(LOCALSTORAGE_KEY);
+      clear(local);
     } 
 
     else {
       finishButton.classList.add('button-active');
-      finishButton.textContent = "✓ Fyrirlestur kláraður";
-      localStorage.setItem('finishbutton', window.location.href.split('=')[1]);
-      
+      finishButton.textContent = "✓ Klára fyrirlestur";
+      localStorage.setItem(local, local);
     }
-    console.log(LOCALSTORAGE_KEY)
+
 }
 
 export function goBack() {
@@ -263,6 +254,7 @@ export function goBack() {
 
 // export function clear(e) {
 
+<<<<<<< HEAD
 //  localStorage.removeItem(e);
 // }
 /*
@@ -280,3 +272,7 @@ export function load() {
   return scores.sort((a, b) => b.points - a.points);
 }
 */
+=======
+ localStorage.removeItem(e);
+}
+>>>>>>> ff436bfb78769c724a2f29ca813df4a97e08376f
