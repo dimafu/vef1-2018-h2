@@ -227,7 +227,7 @@ export function finishLec() {
     localStorage.removeItem(local);
   } else {
     finishButton.classList.add('button-active');
-    finishButton.textContent = "✓ Klára fyrirlestur";
+    finishButton.textContent = "✓ Fyrirlestur kláraður";
     localStorage.setItem(local, local);
     console.log(localStorage);
   }
