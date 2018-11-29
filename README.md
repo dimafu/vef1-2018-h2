@@ -57,7 +57,7 @@ DONE. When clicked on the lecture it is redirected over to `fyrirlestur.html?slu
 
 DONE. For each lecture should display header and all the lecture material that comes after that. In the header comes group and title.
 
-**TO DO.** Lecture material is stored in an array and should display it in the same order as it is defined. Appearance for each unit should be prepared according to the outlook.
+DONE. Lecture material is stored in an array and should display it in the same order as it is defined. Appearance for each unit should be prepared according to the outlook.
 
 DONE. At the bottom is a button to mark a lecture that is finished and link to go back.
 
