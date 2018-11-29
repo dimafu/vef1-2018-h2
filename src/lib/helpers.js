@@ -6,8 +6,12 @@ export function empty(element) {
 // Function for creating elements. Used in renderCard()
 export function el(parent, child, textnode, classname) {
   const element = document.createElement(child);
-  element.appendChild(document.createTextNode(textnode));
-  element.classList.add(classname);
+  if (textnode) {
+    element.appendChild(document.createTextNode(textnode));
+  }
+  if (classname) {
+    element.classList.add(classname);
+  }
   parent.appendChild(element);
 
   return element;
@@ -146,6 +150,7 @@ export function renderCard(lectures) {
   const newDiv2 = el(newLink, 'div', '', 'listItem__image');
 
   const img = el(newDiv2, 'img');
+  console.log(img);
   if (lectures.thumbnail) {
     img.setAttribute('src', lectures.thumbnail);
   }
