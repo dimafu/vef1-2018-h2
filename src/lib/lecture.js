@@ -1,4 +1,4 @@
-import { /* improtar el líka úr helpes */ rendLecture } from './helpers';
+import { rendLecture } from './helpers';
 
 export default class Lecture {
   constructor() {
@@ -19,9 +19,7 @@ export default class Lecture {
   renderLectures(data) {
     const index = data.map((d) => { return d.slug; }).indexOf(window.location.href.split('=')[1]);
     const lecture = data[index];
-    // kalla á hjálparföll for creating elements
     rendLecture(lecture);
-    // const htmlToRender = createHtmlFromLectures(htmlLectures);
   }
 
   load() {

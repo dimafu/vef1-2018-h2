@@ -2,8 +2,8 @@
 
 .navbar {
   display: flex;
-  margin: auto;
   width: 44%;
+  margin: auto;
   justify-content: space-evenly;
 }
 
@@ -21,13 +21,14 @@
   text-align: center;
   text-decoration: none;
 
-  transition: 0.3s ease-in-out;
-
   cursor: pointer;
   background-color: color(cBut);
 
   border: 0;
   border-radius: 15px;
+
+  transition: 0.3s ease-in-out;
+
   &:hover {
     background-color: color(cButHov);
   }
@@ -35,6 +36,7 @@
   &.button-active {
     background-color: color(cButAct);
     transition: 0.3s ease-in-out;
+
     &:hover {
       background-color: color(cButActHov);
     }
@@ -43,45 +45,47 @@
 
 .lecture__button {
   display: block;
-  background-color: transparent;
   padding: 10px 16px;
   margin: 0;
-
   font-family: $font-family-heading;
   font-size: 1rem;
   font-weight: bold;
-  border: none;
-
   color: #000;
   text-align: center;
   text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
+
+  border: unset;
 
   transition: 0.3s ease-in-out;
-.checkmark{
-  display:inline-block;
-  
-  &:after{
-    /*Add another block-level blank space*/
-    content: '';
-    display: block;
- 
-    /*Make it a small rectangle so the border will create an L-shape*/
-    width: 3px;
-    height: 6px;
- 
-    /*Add a white border on the bottom and left, creating that 'L' */
-    border: solid #000;
-    border-width: 0 2px 2px 0;
- 
-    /*Rotate the L 45 degrees to turn it into a checkmark*/
-    transform: rotate(45deg);
+
+  .checkmark {
+    display: inline-block;
+
+    &::after {
+      display: block;
+
+      /* Make it a small rectangle so the border will create an L-shape */
+      width: 3px;
+      height: 6px;
+
+      /* Add another block-level blank space */
+      content: "";
+
+      /* Add a white border on the bottom and left, creating that 'L' */
+      border: solid #000;
+      border-width: 0 2px 2px 0;
+
+      /* Rotate the L 45 degrees to turn it into a checkmark */
+      transform: rotate(45deg);
+    }
   }
-}
-  cursor: pointer;
 
   &.button-active {
     color: color(cButAct);
     transition: 0.3s ease-in-out;
+
     &:hover {
       color: color(cButActHov);
     }

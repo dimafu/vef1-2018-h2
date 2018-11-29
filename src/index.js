@@ -20,6 +20,5 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let button of document.querySelectorAll('.buttons__button')) {
       button.addEventListener('click', readButton);
     }
-    console.log(buttons.length);
   }
 });
