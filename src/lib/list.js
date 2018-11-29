@@ -29,7 +29,7 @@ export default class List {
   renderLectures(data) {
     // Set front page header background image
     const headerimg = document.querySelector('.header__img');
-    headerimg.style.backgroundImage = "url('/img/header.jpg')";
+    headerimg.style.backgroundImage = "url('img/header.jpg')";
     // kalla á hjálparföll for creating elements
     data.forEach((lec) => { // ?? data
       renderCard(lec);
