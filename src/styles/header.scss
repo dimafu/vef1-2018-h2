@@ -1,9 +1,9 @@
 @import "config";
 
 .header {
-  font-family: $font-family-heading;
-  margin-bottom: 40px;
   position: relative;
+  margin-bottom: 40px;
+  font-family: $font-family-heading;
 }
 
 .header__text {
@@ -15,6 +15,7 @@
     font-size: 48px;
     text-align: center;
   }
+
   h3 {
     font-size: 16px;
     text-align: center;
@@ -30,21 +31,21 @@ h3 {
 .header__img {
   display: flex;
   justify-content: center;
-  background-color: color(cBut);
   height: 25vh;
-  background-position: center;
+  background-color: color(cBut);
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
 }
 
 .protection {
-  display: flex;
-  justify-content: center;
+  position: absolute;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
   z-index: 1;
-  position: absolute;
+  display: flex;
+  justify-content: center;
   background-color: rgba(255, 255, 255, 0.6);
 }

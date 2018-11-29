@@ -1,24 +1,26 @@
 @import "config";
 
 .page__cards {
-  margin: 0 auto;
   max-width: 1200px;
+  margin: 0 auto;
 
   .list {
     display: flex;
+    margin: 40px auto;
+    margin-right: -10px;
+    margin-left: -10px;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 40px auto;
-    margin-left: -10px;
-    margin-right: -10px;
   }
+
   .card {
     display: flex;
-    flex-direction: row;
+    width: 100%;
     padding-right: 10px;
     padding-left: 10px;
     margin-bottom: 20px;
-    width: 100%;
+    flex-direction: row;
+
     &.card-hidden {
       display: none;
     }
@@ -37,11 +39,11 @@
 
   .listItem {
     display: flex;
-    flex-direction: column;
-    text-decoration: none;
     width: 100%;
-    background-color: #ccc;
     color: color(cBlack);
+    text-decoration: none;
+    flex-direction: column;
+    background-color: #ccc;
 
     transition: 0.3s ease-in-out;
 
@@ -50,8 +52,8 @@
     }
 
     &__bottom {
-      margin-left: 10px;
       margin-bottom: 10px;
+      margin-left: 10px;
     }
 
     &:hover {
@@ -62,14 +64,15 @@
 
 .listItem__category {
   font-family: $font-family-heading;
+
   span {
     font-size: 16px;
   }
 }
 
 .listItem__text {
-  font-family: $font-family-heading;
   display: flex;
+  font-family: $font-family-heading;
   justify-content: space-between;
 
   h2 {
@@ -78,9 +81,9 @@
   }
 
   h3 {
-    font-size: 32px;
-    word-wrap: break-word;
-    color: color(cButAct);
     padding-right: 10px;
+    font-size: 32px;
+    color: color(cButAct);
+    word-wrap: break-word;
   }
 }

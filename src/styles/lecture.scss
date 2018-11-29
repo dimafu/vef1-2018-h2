@@ -5,16 +5,16 @@ $lec-width: $max-width * 0.66111111;
 
 .lecture {
   display: flex;
+  max-width: $max-width;
+  margin: 40px auto;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  max-width: $max-width;
-  margin: 40px auto;
 }
 
 .lecelem {
-  max-width: $lec-width;
   width: 100%;
+  max-width: $lec-width;
   margin-bottom: 30px;
 }
 
@@ -28,15 +28,15 @@ $lec-width: $max-width * 0.66111111;
 }
 
 p {
-  line-height: 30px;
   margin-bottom: 20px;
+  line-height: 30px;
 }
 
 .quote {
   display: flex;
+  margin: 10px;
   flex-direction: column;
   background-color: color(cBut);
-  margin: 10px;
 }
 
 .image {
@@ -62,8 +62,8 @@ p {
 .bottom__nav {
   display: flex;
   justify-content: center;
-  flex-direction: column;
   width: 25%;
   margin: auto;
   margin-bottom: 50px;
+  flex-direction: column;
 }
