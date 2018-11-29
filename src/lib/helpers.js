@@ -9,7 +9,6 @@ export function el(parent, child, textnode, classname) {
   element.appendChild(document.createTextNode(textnode));
   element.classList.add(classname);
   parent.appendChild(element);
-
   return element;
 }
 // To separate type text into sepaarate paragraphs
@@ -84,7 +83,7 @@ export function filterLectures() {
 export function showCards(value) {
   const newValue = value.toLowerCase();
 
-  for (let card of document.querySelectorAll('.card')) {
+  for (const card of document.querySelectorAll('.card')) {
     if (card.classList.contains(newValue)) {
       card.className = `card ${newValue}`;
     }
@@ -94,7 +93,7 @@ export function showCards(value) {
 export function hideCards(value) {
   const newValue = value.toLowerCase();
 
-  for (let card of document.querySelectorAll('.card')) {
+  for (const card of document.querySelectorAll('.card')) {
     if (!card.classList.contains(newValue)) {
       card.classList.add('card-hidden');
     } else if (card.classList.contains('card-hidden')) {
@@ -122,11 +121,11 @@ export function readButton(button) {
     buttonCounter += 1;
   }
 
-  for (let buttons of document.querySelectorAll('.button-active')) {
+  for (const buttons of document.querySelectorAll('.button-active')) {
     hideCards(`${buttons.innerHTML}`);
   }
 
-  for (let buttons of document.querySelectorAll('.button-active')) {
+  for (const buttons of document.querySelectorAll('.button-active')) {
     showCards(`${buttons.innerHTML}`);
   }
 
@@ -211,7 +210,7 @@ export function rendLecture(lecture) {
     if (elem.type === 'code') {
       appLecMaterial(div1, 'pre', elem.data, elem.type);
     }
-  })
+  });
 
   return lecture;
 }
@@ -222,11 +221,11 @@ export function finishLec() {
 
   if (finishButton.classList.contains('button-active')) {
     finishButton.className = 'lecture__button';
-    finishButton.textContent = "Klára fyrirlestur";
+    finishButton.textContent = 'Klára fyrirlestur';
     localStorage.removeItem(local);
   } else {
     finishButton.classList.add('button-active');
-    finishButton.textContent = "✓ Fyrirlestur kláraður";
+    finishButton.textContent = '✓ Fyrirlestur kláraður';
     localStorage.setItem(local, local);
   }
 

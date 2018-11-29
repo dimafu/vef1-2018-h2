@@ -43,17 +43,17 @@ html {
 
 main {
   max-width: 1200px;
-  margin: 0 auto;
-  padding-left: 20px;
   padding-right: 20px;
-
+  padding-left: 20px;
+  margin: 0 auto;
   font-family: $font-family-body;
   font-size: $baseFontSize;
 }
+
 @media (min-width: 1200px) {
   main {
-    padding-left: 0px;
     padding-right: 0px;
+    padding-left: 0px;
   }
 }
 

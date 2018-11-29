@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import List from './lib/list';
 import Lecture from './lib/lecture';
 import { readButton, finishLec, goBack } from './lib/helpers';
@@ -10,14 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const lecture = new Lecture();
     lecture.load();
     const finishButton = document.getElementById('finish');
-    finishButton.addEventListener("click", finishLec);
+    finishButton.addEventListener('click', finishLec);
     const backButton = document.getElementById('back');
-    backButton.addEventListener("click", goBack);
+    backButton.addEventListener('click', goBack);
   } else {
     const list = new List();
     list.load();
-    const buttons = document.querySelectorAll('.buttons__button');
-    for (let button of document.querySelectorAll('.buttons__button')) {
+    for (const button of document.querySelectorAll('.buttons__button')) {
       button.addEventListener('click', readButton);
     }
   }

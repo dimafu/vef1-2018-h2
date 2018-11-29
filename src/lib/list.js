@@ -1,12 +1,9 @@
-import {
-  renderCard,
-  filterLectures,
-} from './helpers';
+import { renderCard } from './helpers';
 
 export default class List {
   constructor() {
-    this.container = document.querySelector('.list'); 
-    this.url = '../lectures.json';
+    this.container = document.querySelector('.list');
+    this.url = '/lectures.json';
   }
 
   loadLectures() {
@@ -17,15 +14,13 @@ export default class List {
         }
         return response.json();
       });
-
   }
-
 
   renderLectures(data) {
     // Set front page header background image
     const headerimg = document.querySelector('.header__img');
-    headerimg.style.backgroundImage = "url('/img/header.jpg')";
-    data.forEach((lec) => { 
+    headerimg.style.backgroundImage = "url('img/header.jpg')";
+    data.forEach((lec) => {
       renderCard(lec);
     });
   }
