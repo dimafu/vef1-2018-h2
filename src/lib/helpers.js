@@ -220,7 +220,6 @@ export function finishLec() {
   const finishButton = document.getElementById('finish');
   const local = window.location.href.split('=')[1];
 
-  //ath if in localValue inniheldur local, ef ekki fjarlægja úr lista.
   if (finishButton.classList.contains('button-active')) {
     finishButton.className = 'lecture__button';
     finishButton.textContent = "Klára fyrirlestur";
@@ -229,7 +228,6 @@ export function finishLec() {
     finishButton.classList.add('button-active');
     finishButton.textContent = "✓ Fyrirlestur kláraður";
     localStorage.setItem(local, local);
-    console.log(localStorage);
   }
 
 }
